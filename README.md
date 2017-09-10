@@ -2,8 +2,7 @@
 
 Interactive Books' Atelier, an alternative to conventional CMS, a highly extensible package for Laravel opening doors of unlitmed possibilities to design and develop an _interactive book_ (= website).
 
-By [Hossein](http://lostideaslab.com/people/staff-co/hossein/) (desinged path 10+ months)
-
+By [Hossein]
 ------
 
 # What is in the box
