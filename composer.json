@@ -1,0 +1,23 @@
+{
+    "name": "lil-plp/iba",
+    "type": "laravel",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Lost Ideas Lab",
+            "email": "info@lostideaslab.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LILPLP\\IBA\\": "src/"
+        }
+    },
+    "require": {
+        "erusev/parsedown-extra": "^0.7.1",
+        "guzzlehttp/guzzle": "^6.2",
+        "symfony/yaml": "^3.2",
+        "laravel/passport": "2.0.6",
+    }
+}
+
