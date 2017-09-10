@@ -22,6 +22,8 @@ You need to be familiar with Laravel (a bit) and be able to get your web project
 I guess you should be set and ready to go
 Enter 'http://your-project.com/api/home and you should be able to access the backend app
 
+**Hey, give us a star to motivate us write more documentation, or alternatively become a contributor ...**
+
 ## More info
 
 - please look at [our main page](http://lostideaslab.com/pirates-lost-pearl/interactive-books-atelier/)
