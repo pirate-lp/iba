@@ -1,6 +1,29 @@
-# Intearactive Book Publisher (IBA)
+# Intearactive Books' Atelier (IBA)
 
-Interactive Book Publisher [an alternative to CMS, a project on top of Laravel ...]
+Interactive Books' Atelier, an alternative to conventional CMS, a highly extensible package for Laravel opening doors of unlitmed possibilities to design and develop an _interactive book_ (= website).
+
+By [Hossein](http://lostideaslab.com/people/staff-co/hossein/) (desinged path 10+ months)
+
+------
+
+# What is in the box
+
+- **Basics**
+    - A Laravel 5.5 package
+    - Example packages: so you can see how it IBA's funcationality can be implemented
+- **Details (standards used)**
+    - Multiple content (page) type
+    - Built in static website generation
+    - HTML and Markdown support
+    - Hybrid storage: Database and Flatfile architectures combined
+    - image and `.mp4` support
+- **Best to combine with**
+    - Laravel project
+    - VueJS or any other api-style front-end manipulation for the website
+- **what is not there**
+    - `delete function`: cuz we believe even bad works that have been published in the past should be presereved for the purpose of archiving the past, of course, if you disagree you can write the function yourself
+    
+-------
 
 # Digest Getting Started Guide
 
@@ -27,3 +50,6 @@ Enter 'http://your-project.com/api/home and you should be able to access the bac
 ## More info
 
 - please look at [our main page](http://lostideaslab.com/pirates-lost-pearl/interactive-books-atelier/)
+
+-------
+
