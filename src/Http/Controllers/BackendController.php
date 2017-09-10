@@ -10,8 +10,12 @@ use Illuminate\Routing\Controller as Controller;
 class BackendController extends Controller
 {
     //
-    static $bookTypes = ['article', 'poem', 'idea', 'post'];
-
+    public $bookTypes;
+    
+    public function __construct() {
+	    $this->bookTypes = config('iba.book_types');
+    }
+    
     public function index()
     {
 // 	    return "hi";
@@ -35,6 +39,6 @@ class BackendController extends Controller
 
     public function apiIndex()
     {
-	    return static::$bookTypes;
+	    return $this->bookTypes;
     }
 }

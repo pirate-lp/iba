@@ -11,7 +11,11 @@ use LILPLP\IBA\People;
 class ApiController extends Controller
 {
     //
-    static $bookTypes = ['article', 'poem', 'idea', 'post'];
+    public $bookTypes;
+    
+    public function __construct() {
+	    $this->bookTypes = config('iba.book_types');
+    }
     
     public function keywords()
     {
@@ -30,6 +34,6 @@ class ApiController extends Controller
     
     public function apiIndex()
     {
-	    return static::$bookTypes;
+	    return $this->bookTypes;
     }
 }
