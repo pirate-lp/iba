@@ -19,11 +19,15 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
+		$this->publishes([
+        	__DIR__.'/config/iba.php' => config_path('iba.php'),
+		]);
+    
 		require __DIR__.'/routes/api.php';
 		require __DIR__.'/routes/web.php';
 		
 		$this->loadViewsFrom(__DIR__.'/resources/views', 'iba');
-			
+		
 		$this->publishes([
 				__DIR__.'/public' => public_path('lil-plp/iba'),
 			], 'public');

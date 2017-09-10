@@ -1,5 +1,5 @@
 export default {
-	host: 'http://lil.dev',
-	client_id: '2',
-	client_secret: '52HuTPCatxJNspuIwhKOTbIck5LTz4URd7dXyK2f',
+	host: Window.Config.host,
+	client_id: Window.Config.client_id,
+	client_secret: Window.Config.client_secret,
 }

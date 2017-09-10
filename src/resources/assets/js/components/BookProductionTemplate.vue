@@ -62,7 +62,7 @@
 		<div class="pure-u-1-1 pure-u-md-3-8">
 			<fieldset v-if="form.hasOwnProperty('thumbnail')">
 				<legend>Thumbnail</legend>
-				Send this file: <input name="thumbnail" type="file"/>
+<!-- 				Send this file: <input name="thumbnail" type="file"/> -->
 				<input class="input" placeholder="folders/to/reach/the/file" type="text" v-model="form.thumbnail.path">
 				<input class="input" placeholder="file_name.extension" type="text" v-model="form.thumbnail.name">
 				<input class="input" placeholder="Photographer" type="text" v-model="form.thumbnail.photographer">

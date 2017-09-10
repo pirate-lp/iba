@@ -30,6 +30,9 @@
 	</head>
 	
 	<body class="">
+		<script>
+			Window.Config = <?php echo json_encode(config('iba')); ?>;
+		</script>
 		<div id="app"></div>
 		<script src="/lil-plp/iba/js/index.js"></script>
 	</body>

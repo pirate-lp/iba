@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use LILPLP\IBA;
+use LILPLP\IBA\Timestamp;
 
 trait BookProduceDimensions {
 	
@@ -68,7 +69,7 @@ trait BookProduceDimensions {
 	public function storeTimestamp($values)
 	{
 		if ( $values['timestamp'] ) {
-			$timestamp = new Book\Timestamp;
+			$timestamp = new Timestamp;
 			$timestamp->draft = ( !empty($values['timestamp']['draft']) ) ? Carbon::parse($values['timestamp']['draft']) : null;
 			$timestamp->publish = ( !empty($values['timestamp']['publish']) ) ? Carbon::parse($values['timestamp']['publish']) : null;
 			$timestamp->amend = ( !empty($values['timestamp']['amend']) ) ? Carbon::parse($values['timestamp']['amend']) : null;
