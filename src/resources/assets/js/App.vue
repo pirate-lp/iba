@@ -2,7 +2,7 @@
 <div id="main">
 	<nav class="tabs is-toggle">
 		<ul class="pure-menu-list">
-			<li><router-link class="pure-menu-link pure-menu-heading" to="/">Lost Ideas Lab's <b>IBA</b></router-link></li>
+			<li><router-link class="pure-menu-link pure-menu-heading" to="/"><b>IBA |</b>{{ name }}</router-link></li>
 			<template v-for="bookType in bookTypes">
 				<li><router-link class="pure-menu-link" :to="'/' + bookType + '/'">{{ bookType | capitalize }}</router-link></li>
 				<li class="lil-menu-add"><router-link class="pure-menu-link" :to="'/' + bookType + '/create'"><span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span></router-link></li>
@@ -69,9 +69,11 @@ export default {
 				password: ''
 					},
 					error: '',
+			name: '',
 		}
 	},
 	mounted() {
+		this.name = Window.Configs.name; 
 		this.menu()
 	},
 	methods: {

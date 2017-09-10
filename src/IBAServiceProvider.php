@@ -128,6 +128,7 @@ class IBAServiceProvider extends Provider
 			{
 				
 				$content = Storage::disk($disk)->get($uri);
+// 				dd($uri);
 				return response($content, 200)->withHeaders([
 					'Content-Type' => 'image',
 					'X-Header-One' => 'Header Value',

@@ -1,7 +1,7 @@
 <template>
 <div>
-	<p>Welcome to ...</p>
-	<p>Powered by Interactive Books' Atelier, a product of Lost Ideas Lab's Design & Development</p>
+	<p>Welcome</p>
+	<p>Powered by <a href="http://lostideaslab.com/pirates-lost-pearl/interactive-books-atelier/">Interactive Books' Atelier</a> of <a href="http://lostideaslab.com/pirates-lost-pearl/">Pirate's Lost Pearl</a></p>
 </div>
 </template>
 

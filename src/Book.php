@@ -16,7 +16,7 @@ use LILPLP\IBA\Production\BookProduction;
 use LILPLP\IBA\Dimensions;
 use LILPLP\IBA\Groupings;
 use LILPLP\IBA\Title;
-use LILPLP\IBA\SubTitle;
+use LILPLP\IBA\Subtitle;
 
 abstract class Book extends Model {
 	
