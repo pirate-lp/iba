@@ -13,6 +13,7 @@ class BundleController extends BookController
     public $type = 'bundle';
 // 	public $roles = ['inspired', 'author', 'dedicated'];
 // 	public $bundleTypes = ['selection'];
+    public $class = Bundle::class;
     
     public function store(Request $request)
     {

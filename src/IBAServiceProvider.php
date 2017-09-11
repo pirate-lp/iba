@@ -9,6 +9,7 @@ use GuzzleHttp;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\ServiceProvider as Provider;
+use Illuminate\Support\Facades\Route;
 
 class IBAServiceProvider extends Provider
 {

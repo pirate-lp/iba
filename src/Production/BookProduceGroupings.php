@@ -69,7 +69,6 @@ trait BookProduceGroupings {
 	{
 		foreach ( $values['bundles'] as $bundle )
 		{
-			dd($bundle->id);
 			$this->bundles()->attach($bundle['id']);
 		}
 	}

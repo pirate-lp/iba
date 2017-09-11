@@ -92,8 +92,9 @@ trait BookProduceDimensions {
 	
 	public function storeOrUpdateTitle($values)
 	{
-		$this->title->value = $values['title'];
-		$this->title->save();
+		$title = $this->title;
+		$title->value = $values['title'];
+		$title->save();
 	}
 	
 	public function storeOrUpdateSlug($values)
@@ -102,8 +103,9 @@ trait BookProduceDimensions {
 		{
 			$values['slug'] = str_slug($values['title']);
 		}
-		$this->slug->value = $values['slug'];
-		$this->slug->save();
+		$slug = $this->slug;
+		$slug->value = $values['slug'];
+		$slug->save();
 	}
 	
 	public function storeOrUpdateDescription($values)

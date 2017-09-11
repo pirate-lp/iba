@@ -7,6 +7,7 @@ use LILPLP\IBA\Book as Book;
 class Bundle extends Book
 {
     public $fillable = ['type'];
+    public $class = Bundle::class;
      
     public static $dimensions = ['title', 'subtitle', 'description', 'slug', 'thumbnail'];
     public static $groupings = [];
