@@ -7,6 +7,7 @@ By [Hossein](http://lostideaslab.com/people/staff-co/hossein/)
 ## Where to go next:
 
 - [PLP | IBA | Index Flyer](http://lostideaslab.com/pirates-lost-pearl/interactive-books-atelier/): you can get an overall information about what this all is about, such as:
+    - some screen shots of a living instance of IBA
     - What is in the box
     - How good is IBA
     - How can use IBA
