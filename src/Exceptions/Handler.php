@@ -50,11 +50,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-	    $uri = $request->path();
-		$page = new Page($uri);
-		if ( $page->uri )
-		{
-			return $page->show();
+	    try {
+		    $uri = $request->path();
+			$page = new Page($uri);
+			if ( $page->uri )
+			{
+				return $page->show();
+			}
+		}
+		catch(Exception $exception) {
+			return parent::render($request, $exception);
 		}
 		
         return parent::render($request, $exception);

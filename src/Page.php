@@ -25,6 +25,7 @@ class Page {
 			$uri_base = $uri_parts[0] . '/index.md';
 			$this->base = $this->retriveMetas($uri_base, 'pages');
 			$this->base['slug'] = $uri_parts[0];
+			$this->menu = $this->constructMenu($uri_parts[0]);
 	    }
 	    return $this->uri;
     }
@@ -126,15 +127,26 @@ class Page {
 	public function display() {
 		$page = $this->render($this->uri, 'pages');
 		$base = $this->base;
+		$menu = $this->menu;
 		if ( array_key_exists('style', $page) )
 		{
 			$blade_file = 'iba::page.' . $page['style'];
 			
 			if ( $page['style'] != 'index' ) {
-				return response()->view($blade_file, compact('page', 'base'), '200');
+				return response()->view($blade_file, compact('page', 'base', 'menu'), '200');
 			}
-			return response()->view('iba::page', compact('page', 'base'), '200'); /// to be changed later !!!
+			return response()->view('iba::page', compact('page', 'base', 'menu'), '200'); /// to be changed later !!!
 		}
-		return 	response()->view('iba::page', compact('page', 'base'), '200');
+		return 	response()->view('iba::page', compact('page', 'base', 'menu'), '200');
+	}
+	
+	
+	public function constructMenu($base) {
+		$directories = [];
+		foreach ( Storage::disk('pages')->directories($base) as $sub )
+		{
+			$directories[$sub] = Storage::disk('pages')->directories($sub);
+		}
+		return $directories;
 	}
 }
