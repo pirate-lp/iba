@@ -1,11 +1,11 @@
 {
     "name": "lil-plp/iba",
     "type": "laravel",
-    "license": "AGPL",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Lost Ideas Lab",
-            "email": "info@lostideaslab.com"
+            "name": "Pirates Lost Pearl (by Lost Ideas Lab)",
+            "email": "hossein@lostideaslab.com"
         }
     ],
     "autoload": {
