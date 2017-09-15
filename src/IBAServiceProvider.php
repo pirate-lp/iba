@@ -33,7 +33,7 @@ class IBAServiceProvider extends Provider
 				__DIR__.'/public' => public_path('lil-plp/iba'),
 			], 'public');
 		
-		$this->loadMigrationsFrom(__DIR__.'/migrations');
+		$this->loadMigrationsFrom(__DIR__.'/database/migrations');
 			
 		Response::macro('backend', function ($book)
 		{
