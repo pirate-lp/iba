@@ -74,6 +74,7 @@
 				<label>Keywords</label>
 				<multiselect
 					v-model="form.keywords"
+					value="id"
 					:options="keywords"
 					id="id"
 					track-by="id"
@@ -167,10 +168,10 @@ export default {
 			onSubmit() {
 				var self = this;
 				if ( this.$route.params.id ) {
-					let uri = '/api/backend/' + self.type + '/' + self.$route.params.id;
+					let uri = '/api/iba/' + self.type + '/' + self.$route.params.id;
 					self.form.patch(self, uri).then(console.log(response.data));
 				} else {
-					let uri = '/api/backend/' + self.type + '/';
+					let uri = '/api/iba/' + self.type + '/';
 					self.form.post(self, uri).then(console.log(response.data));
 				}
 			},
@@ -180,8 +181,6 @@ export default {
 				this.form.keywords.push(keyword)
 			},
 			addPeople (newPerson, role) {
-			console.log(role);
-			console.log(newPerson)
 				const person = {
 					name: newPerson,
 				}
@@ -197,9 +196,9 @@ export default {
 			initialize() {
 				console.log(this.abstractBook.timestamp)
 				if ( this.$route.params.id ) {
-					var uri = '/api/backend/' + this.type + '/' + this.$route.params.id + '/edit';
+					var uri = '/api/iba/' + this.type + '/' + this.$route.params.id + '/edit';
 				} else {
-					var uri = '/api/backend/' + this.type + '/create';
+					var uri = '/api/iba/' + this.type + '/create';
 				}
 				let self = this;
 				this.$http.get(uri)

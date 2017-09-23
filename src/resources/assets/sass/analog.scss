@@ -1,0 +1,35 @@
+@import "node_modules/bulma/bulma";
+@import "node_modules/purecss/build/pure-min";
+@import "node_modules/purecss/build/grids-responsive-min";
+
+$fa-font-path: "/../lil-plp/iba/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+.navbar-title {
+	background-color: $turquoise;
+}
+
+.aside-main-menu ul {
+	
+}
+.aside-main-menu ul > li {
+	display: block;
+	border-bottom: 1px solid $turquoise;
+	background-color: $grey-darker;
+}
+.aside-main-menu ul > li a {
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	color: $dark-invert;
+}
+.aside-main-menu ul > li a:hover {
+	color: $white;
+	background-color: $black;
+}
+
+.iba-main-form .panel {
+	margin: 0.4rem;
+}
+.iba-main-form .panel-heading {
+	font-size: 0.8rem;
+}

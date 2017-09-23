@@ -2,7 +2,7 @@
 
 namespace LILPLP\IBA;
 
-use Illuminate\Contracts\View\Factory as View;
+use Illuminate\Support\Facades\View as View;
 use Illuminate\Support\Facades\Response as Response;
 
 use GuzzleHttp;
@@ -24,7 +24,6 @@ class IBAServiceProvider extends Provider
         	__DIR__.'/config/iba.php' => config_path('iba.php'),
 		]);
     
-		require __DIR__.'/routes/api.php';
 		require __DIR__.'/routes/web.php';
 		
 		$this->loadViewsFrom(__DIR__.'/resources/views', 'iba');
@@ -136,7 +135,42 @@ class IBAServiceProvider extends Provider
 					'X-Header-Two' => 'Header Value',
 				]);
 			}
-		});			
+		});
+		
+		
+		
+		
+		
+		View::composer('iba::analog.modules.create', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::analog.modules.create', function($view) {
+	        $view->with('peoples', People::select('id', 'name')->get());
+        });
+        
+        View::composer('iba::analog.create', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::analog.create', function($view) {
+	        $view->with('peoples', People::select('id', 'name')->get());
+        });
+        
+        View::composer('iba::analog.modules.edit', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::amalog.modules.edit', function($view) {
+	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
+// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
+        });
+        View::composer('iba::analog.edit', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+         View::composer('iba::analog.edit', function($view) {
+	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
+// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
+        });
+		
+				
 	}
 
 	/**

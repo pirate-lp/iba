@@ -78,7 +78,7 @@ export default {
 		    return '/bundle/' + value + '/edit/'
 	    },
 	    initialize () {
-		    let uri = '/api/backend/bundle';
+		    let uri = '/api/iba/bundle';
 		    let self = this;
 			console.log(this.$http.defaults)
 		    this.$http.get(uri)

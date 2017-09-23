@@ -47,7 +47,7 @@ export default {
 	methods: {
 	    initialize () {
 		    console.log(this.$http.headers)
-		    let uri = '/api/backend/' + this.$route.params.type;
+		    let uri = '/api/iba/' + this.$route.params.type;
 		    let self = this;
 // 			console.log(this.$http.defaults)
 		    this.$http.get(uri)

@@ -1,0 +1,1 @@
+@extends('iba::digital.master')

@@ -4,6 +4,8 @@ namespace LILPLP\IBA\Production;
 
 use Illuminate\Database\Eloquent\Model;
 use LILPLP\IBA\Keyword;
+use LILPLP\IBA\People;
+use LILPLP\IBA\Name;
 use App;
 
 use Illuminate\Support\Collection;
@@ -37,25 +39,26 @@ trait BookProduceGroupings {
 		{
 			foreach ( $values['people'] as $role => $people )
 			{
+				$people = $this->convert($people);
 				foreach ( $people as $person )
 				{
-					if (!isset($person['id']))
+					if (!isset($person['id']) || !is_numeric($person['id']) )
 					{
-						$key = App\Name::where('identifier', $person['name'] )->first();
+						$key = Name::where('identifier', $person['name'] )->first();
 						if ( !is_null($key) )
 					    {
 						    $person = $key->people()->first();
 					    }
 					    else
 					    {
-						    $newPerson = new App\People;
+						    $newPerson = new People;
 						    $newPerson->save();
 							$newPerson->detail()->create([ 'identifier' => $person['name'] ]);
 							$person = $newPerson;
 					    }
 					}
 					else {
-						$person = App\People::find($person['id']);
+						$person = People::find($person['id']);
 					}
 					$this->people()->attach($person->id, ['role' => $role]);
 				}
@@ -69,6 +72,7 @@ trait BookProduceGroupings {
 	{
 		foreach ( $values['bundles'] as $bundle )
 		{
+			$bundle = $this->convert($bundle);
 			$this->bundles()->attach($bundle['id']);
 		}
 	}
@@ -103,9 +107,10 @@ trait BookProduceGroupings {
 	public function syncKeywords($keywords)
 	{
 		$newsKeywords = [];
+		$keywords = $this->convert($keywords);
 		foreach ($keywords as $keyword)
 		{
-			if (!isset($keyword['id']))
+			if (!isset($keyword['id']) || !is_numeric($keyword['id']))
 			{
 				$newkeyword = new Keyword;
 				$key = $newkeyword->where('word', $keyword['word'])->first();
@@ -154,6 +159,7 @@ trait BookProduceGroupings {
 		$bundles = array();
 		foreach($values['bundles'] as $type => $bundle)
 		{
+			$bundle = $this->convert($bundle);
 			if (isset($bundle['id']))
 			{
 				$bundles[] = $bundle['id'];
@@ -181,17 +187,22 @@ trait BookProduceGroupings {
 		}
 
 		$collections = $values['people'];
+		foreach( $collections as $role => $collection )
+		{
+			$collections[$role] = $this->convert($collection);
+		}
+		
 		$newPeople = array();
 		foreach( $collections as $role => $collection )
 		{
 			foreach ( $collection as $key => $person )
 			{
-				if ( !array_key_exists('id', $person) )
+				if ( !array_key_exists('id', $person) || !is_numeric($person['id']))
 				{
 					$newPeople[] = $person['name'];
 					
-					$people = new App\People;
-				    $name = App\Name::where('identifier', $person['name'])->first();
+					$people = new People;
+				    $name = Name::where('identifier', $person['name'])->first();
 				    if ( !is_null($name) )
 				    {
 					    $collections[$role][$key]['id'] = $name->people->id;
@@ -230,6 +241,7 @@ trait BookProduceGroupings {
 		
 		foreach( $collections as $role => $collection )
 		{
+			$collection = $this->convert($collection);
 			foreach ( $collection as $person )
 			{
 				$ifExisting = $this->people()->where('role',$role)->where('people_id', $person['id'])->first();
@@ -251,7 +263,7 @@ trait BookProduceGroupings {
 		
 				else
 				{
-					$newPerson = App\People::whereHas('detail', function ($query) use ( $person ) {
+					$newPerson = People::whereHas('detail', function ($query) use ( $person ) {
 					    	$query->where('identifier', $person['name']);
 					    })->first();
 					$this->people()->attach($person->id, ['role' => $role]);
@@ -287,4 +299,11 @@ trait BookProduceGroupings {
 	}
 
 	
+	public function convert($string) {
+		if (is_string($string))
+		{
+			return json_decode($string, true);
+		}
+		return $string;
+	}
 }

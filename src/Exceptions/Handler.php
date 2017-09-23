@@ -5,7 +5,7 @@ namespace LILPLP\IBA\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-use LILPLP\IBA\Page;
+use LILPLP\IBA\Leaf;
 
 class Handler extends ExceptionHandler
 {
@@ -52,10 +52,10 @@ class Handler extends ExceptionHandler
     {
 	    try {
 		    $uri = $request->path();
-			$page = new Page($uri);
-			if ( $page->uri )
+			$leaf = new Leaf($uri);
+			if ( $leaf->uri )
 			{
-				return $page->show();
+				return $leaf->show();
 			}
 		}
 		catch(Exception $exception) {

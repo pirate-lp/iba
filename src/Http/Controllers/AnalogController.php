@@ -2,13 +2,12 @@
 
 namespace LILPLP\IBA\Http\Controllers;
 
-use Illuminate\Routing\Controller as Controller;
-use Illuminate\Http\Request;
-
-use LILPLP\IBA\Keyword;
 use LILPLP\IBA\People;
+use LILPLP\IBA\Keyword;
 
-class ApiController extends Controller
+use Illuminate\Routing\Controller as Controller;
+
+class AnalogController extends Controller
 {
     //
     public $bookTypes;
@@ -17,21 +16,26 @@ class ApiController extends Controller
 	    $this->bookTypes = config('iba.book_types');
     }
     
+    public function index()
+    {
+	    return view('iba::analog.index');
+    }
+
     public function keywords()
     {
 	    return Keyword::all();
     }
-    
+
     public function people()
     {
 	    return People::all();
     }
-    
-    public function start()
+
+    public function apiHome()
     {
-	    return view('iba::digital.index');
+	    return view('backend.apiIndex');
     }
-    
+
     public function apiIndex()
     {
 	    return $this->bookTypes;
