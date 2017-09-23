@@ -1,8 +1,10 @@
-# Intearactive Books' Atelier (IBA)
+# Interactive Books' Atelier
 
-Interactive Books' Atelier, an alternative to conventional CMS, a highly extensible package for Laravel opening doors of unlitmed possibilities to design and develop an _interactive book_ (= website).
+Interactive Books' Atelier (IBA): the future of publishing content digital ...
 
-By [Hossein](http://lostideaslab.com/people/staff-co/hossein/)
+This is the best shot at describing it: An alternative to conventional CMS, a highly extensible package for Laravel opening doors of unlimited possibilities to design and develop an _interactive book_ (= website).
+
+From [Pirate's Lost Pearl](http://lostideaslab.com/pirates-lost-pearl/) an idea from [Lost Ideas Lab](http://lostideaslab.com/); Designed & developed from scratch by [Hossein](http://lostideaslab.com/people/staff-co/hossein/)
 
 ## Where to go next:
 
