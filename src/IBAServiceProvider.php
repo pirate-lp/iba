@@ -141,31 +141,31 @@ class IBAServiceProvider extends Provider
 		
 		
 		
-		View::composer('iba::analog.modules.create', function($view) {
+		View::composer('iba::modules.create', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-        View::composer('iba::analog.modules.create', function($view) {
+        View::composer('iba::modules.create', function($view) {
 	        $view->with('peoples', People::select('id', 'name')->get());
         });
         
-        View::composer('iba::analog.create', function($view) {
+        View::composer('iba::create', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-        View::composer('iba::analog.create', function($view) {
+        View::composer('iba::create', function($view) {
 	        $view->with('peoples', People::select('id', 'name')->get());
         });
         
-        View::composer('iba::analog.modules.edit', function($view) {
+        View::composer('iba::modules.edit', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
         View::composer('iba::amalog.modules.edit', function($view) {
 	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
 // 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
         });
-        View::composer('iba::analog.edit', function($view) {
+        View::composer('iba::edit', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-         View::composer('iba::analog.edit', function($view) {
+         View::composer('iba::edit', function($view) {
 	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
 // 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
         });

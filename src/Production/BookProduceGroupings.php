@@ -40,27 +40,30 @@ trait BookProduceGroupings {
 			foreach ( $values['people'] as $role => $people )
 			{
 				$people = $this->convert($people);
-				foreach ( $people as $person )
-				{
-					if (!isset($person['id']) || !is_numeric($person['id']) )
+				if ( !empty($people) )
+				{{}
+					foreach ( $people as $person )
 					{
-						$key = Name::where('identifier', $person['name'] )->first();
-						if ( !is_null($key) )
-					    {
-						    $person = $key->people()->first();
-					    }
-					    else
-					    {
-						    $newPerson = new People;
-						    $newPerson->save();
-							$newPerson->detail()->create([ 'identifier' => $person['name'] ]);
-							$person = $newPerson;
-					    }
+						if (!isset($person['id']) || !is_numeric($person['id']) )
+						{
+							$key = Name::where('identifier', $person['name'] )->first();
+							if ( !is_null($key) )
+						    {
+							    $person = $key->people()->first();
+						    }
+						    else
+						    {
+							    $newPerson = new People;
+							    $newPerson->save();
+								$newPerson->detail()->create([ 'identifier' => $person['name'] ]);
+								$person = $newPerson;
+						    }
+						}
+						else {
+							$person = People::find($person['id']);
+						}
+						$this->people()->attach($person->id, ['role' => $role]);
 					}
-					else {
-						$person = People::find($person['id']);
-					}
-					$this->people()->attach($person->id, ['role' => $role]);
 				}
 			}
 		}

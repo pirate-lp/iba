@@ -39,7 +39,7 @@ class BookController extends Controller
 		$items = $this->class::with($this->class::$dimensions)->get();
 		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::analog.manage', compact('items', 'type'));
+			return view('iba::manage', compact('items', 'type'));
 		} else {
 			return response()->json(compact('items', 'abstract'));
 		}
@@ -58,7 +58,7 @@ class BookController extends Controller
 	    $type = $this->type;
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::analog.create', compact('book', 'bundles', 'type', 'roles'));
+			return view('iba::create', compact('book', 'bundles', 'type', 'roles'));
 		} else {
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
@@ -117,7 +117,7 @@ class BookController extends Controller
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::analog.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
+			return view('iba::edit', compact('article', 'bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));

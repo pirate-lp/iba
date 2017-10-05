@@ -32,7 +32,7 @@ class BundleController extends BookController
 	    $type = $this->type;
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::analog.bundle.create', compact('book', 'bundles', 'type', 'roles'));
+			return view('iba::bundle.create', compact('book', 'bundles', 'type', 'roles'));
 		} else {
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
@@ -59,7 +59,7 @@ class BundleController extends BookController
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::analog.bundle.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
+			return view('iba::bundle.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));

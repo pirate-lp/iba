@@ -1,0 +1,34 @@
+@import "node_modules/purecss/build/pure-min";
+@import "node_modules/purecss/build/grids-responsive-min";
+
+$fa-font-path: "/../lil-plp/iba/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "blaze/blaze.scss";
+
+
+
+.aside-main-menu ul > li a {
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+}
+
+
+
+
+
+.c-nav__item > a {
+	color: white;
+	text-decoration: none;
+}
+.c-card {
+	overflow: visible;
+	width: auto;
+}
+
+.iba-main-form .c-card {
+	margin: 0.4rem;
+}
+.iba-main-form .c-card__item--divider {
+	font-weight: normal;
+	font-size: 0.8rem;
+}

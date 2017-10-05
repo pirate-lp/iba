@@ -18,7 +18,7 @@ class AnalogController extends Controller
     
     public function index()
     {
-	    return view('iba::analog.index');
+	    return view('iba::index');
     }
 
     public function keywords()

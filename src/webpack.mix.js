@@ -11,13 +11,10 @@ const { mix } = require('laravel-mix');
  |
  */
 mix.options({ processCssUrls: false })  
-mix.js('resources/assets/js/index.js', 'public/js/')
-	.sass('resources/assets/sass/backend.scss', 'public/css')
-	
-	.js('resources/assets/js/analog.js', 'public/js/')
+mix.js('resources/assets/js/analog.js', 'public/js/')
 	.js('resources/assets/js/selectize.js', 'public/js/')
 	.sass('resources/assets/sass/selectize.scss', 'public/css')
-	.sass('resources/assets/sass/analog.scss', 'public/css')
+	.sass('resources/assets/sass/style.scss', 'public/css')
 	.sass('resources/assets/sass/fonts.scss', 'public/css');
    
 /*

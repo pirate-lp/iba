@@ -1,9 +1,7 @@
 {
-  "/public/js/index.js": "/public/js/index.js",
-  "/public/css/backend.css": "/public/css/backend.css",
-  "/public/css/selectize.css": "/public/css/selectize.css",
-  "/public/css/analog.css": "/public/css/analog.css",
-  "/public/css/fonts.css": "/public/css/fonts.css",
   "/public/js/analog.js": "/public/js/analog.js",
-  "/public/js/selectize.js": "/public/js/selectize.js"
+  "/public/css/selectize.css": "/public/css/selectize.css",
+  "/public/css/fonts.css": "/public/css/fonts.css",
+  "/public/js/selectize.js": "/public/js/selectize.js",
+  "/public/css/style.css": "/public/css/style.css"
 }
