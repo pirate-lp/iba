@@ -183,7 +183,7 @@
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Draft</label></div>
-					<input class="c-field" name="timestamp[draft]" type="date" @if ( isset($book->timestamp->draft) )
+					<input class="c-field flatpickr" name="timestamp[draft]" type="text" @if ( isset($book->timestamp->draft) )
 							value="{{ $book->timestamp->draft->toDateString() }}"
 						@endif
 						>
@@ -192,7 +192,7 @@
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Published</label></div>
-					<input class="c-field" name="timestamp[publish]" type="date" @if (isset($book->timestamp->publish) )
+					<input class="c-field flatpickr" name="timestamp[publish]" type="text" @if (isset($book->timestamp->publish) )
 						value="{{ $book->timestamp->publish->toDateString() }}"
 					@endif
 					>
@@ -201,7 +201,7 @@
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Amended</label></div>
-					<input class="c-field" name="timestamp[amend]" type="date" @if ( isset($book->timestamp->amend) )
+					<input class="c-field flatpickr" name="timestamp[amend]" type="text" @if ( isset($book->timestamp->amend) )
 							value="{{ $book->timestamp->amend->toDateString() }}"
 						@endif
 						>

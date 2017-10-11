@@ -172,19 +172,19 @@
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Draft</label></div>
-					<input class="c-field" name="timestamp[draft]" type="date" >
+					<input class="c-field flatpickr" name="timestamp[draft]" type="text" >
 				</div>
 			</div>
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Published</label></div>
-					<input class="c-field" name="timestamp[publish]" type="date" >
+					<input class="c-field flatpickr" name="timestamp[publish]" type="text" >
 				</div>
 			</div>
 			<div class="c-card__item">
 				<div class="control field is-horizontal">
 					<div class="field-label is-small"><label class="label">Amended</label></div>
-					<input class="c-field" name="timestamp[amend]" type="date" >
+					<input class="c-field flatpickr" name="timestamp[amend]" type="text" >
 				</div>
 			</div>
 		</div>

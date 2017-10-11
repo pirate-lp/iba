@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider as Provider;
 use Illuminate\Support\Facades\Route;
 
+use LILPLP\IBA\Console\ModelMakeCommand as ModelMakeCommand;
+use LILPLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
+use LILPLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
+use LILPLP\IBA\Console\BookMakeCommand;
+
 class IBAServiceProvider extends Provider
 {
 	/**
@@ -33,7 +38,16 @@ class IBAServiceProvider extends Provider
 			], 'public');
 		
 		$this->loadMigrationsFrom(__DIR__.'/database/migrations');
-			
+		
+		if ($this->app->runningInConsole()) {
+	        $this->commands([
+		        MigrateMakeCommand::class,
+	            ModelMakeCommand::class,
+	            ControllerMakeCommand::class,
+	            BookMakeCommand::class,
+	        ]);
+	    }
+		
 		Response::macro('backend', function ($book)
 		{
 			if ( in_array('web', Route::current()->computedMiddleware) )
