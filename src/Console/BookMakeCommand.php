@@ -14,10 +14,22 @@ class BookMakeCommand extends Command
 	public function handle()
     {
         $this->validateType();
-		$type = $this->argument('type');
-		$this->call('book-make:migration', ['name'=>'create_'. lcfirst(class_basename($type)) . '_table']);
-		$this->call('book-make:model', ['name' => $type]);
-		$this->call('book-make:controller', ['name' => $type . 'Controller', '--model' => $type]);
+		
+		$table = Str::plural(Str::snake(class_basename($this->argument('type'))));
+
+        $this->call('book-make:migration', [
+            'name' => "create_{$table}_table",
+            '--create' => $table,
+        ]);
+        
+		$this->call('book-make:model', [
+			'name' => $this->argument('type')
+		]);
+		
+		$this->call('book-make:controller', [
+			'name' => $this->argument('type') . 'Controller',
+			'--model' => $this->argument('type')
+		]);
 	}
 	
 	private function validateType()

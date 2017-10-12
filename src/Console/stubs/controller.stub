@@ -8,6 +8,7 @@ use App\DummyModelClass;
 
 class DummyClass extends BookController
 {
+	public $type = 'DummyModelVariable';
     public $class = DummyModelClass::class;
     public $roles = [];
     public $bundleTypes = [];

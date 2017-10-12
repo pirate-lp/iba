@@ -37,7 +37,4 @@ class MigrateMakeCommand extends Base
         parent::__construct($creator, $composer);
     }
 
-
-	
-
 }
