@@ -14,7 +14,6 @@ class Leaf {
     protected $slug;
     public $base;
     
-    
     function __construct($uri)
     {
 	    $this->uri = $this->exists($uri);
@@ -50,26 +49,19 @@ class Leaf {
 		return false;
 	}
 	
-	
 	public function cssStandards($content)
 	{
-		$cssStandards = array ( "mainStandard" => "cen pure-u-1 pure-u-sm-23-24 pure-u-md-17-24 pure-u-lg-15-24 pure-u-xl-13-24",
-			"ideaStandard" => 'cen pure-u-1 pure-u-sm-24-24 pure-u-md-23-24 pure-u-lg-21-24 pure-u-xl-19-24',
-			'ideaIStandard' =>	'cen pure-u-23-24 pure-u-sm-22-24 pure-u-md-21-24 pure-u-lg-19-24 pure-u-xl-17-24',
-			"textStandard" => "cen pure-u-1 pure-u-sm-23-24 pure-u-md-23-24 pure-u-lg-19-24 pure-u-xl-20-24",
-			"textIndex" => "cent pure-u-1 pure-u-sm-1-1 pure-u-md-1-3 pure-u-lg-7-24",
-			"textContent" => "cent pure-u-1 pure-u-sm-1-1 pure-u-md-2-3 pure-u-lg-17-24",
-			"ideaLStandard" => "pure-u-1 pure-u-sm-1-1 pure-u-md-2-3 pure-u-lg-3-5 pure-u-xl-3-5",
-			"ideaSStandard" => "pure-u-1 pure-u-sm-1-1 pure-u-md-1-3 pure-u-lg-2-5 pure-u-xl-2-5",
-			"HTitleStandard" => "pure-u-1 pure-u-sm-1-1 pure-u-md-1-3 pure-u-lg-5-12",
-			"HMotoStandard" => "pure-u-1 pure-u-sm-1-1 pure-u-md-2-3 pure-u-lg-7-12");
-        
-        $keys = $values = array();
-        foreach ($cssStandards as $key => $value) {
-		    $keys[] = '%' . $key . '%';
-		    $values[] = $value;
+		if ( !empty(config('iba.short_keys')) )
+		{
+			$cssStandards = config('iba.short_keys');
+	        $keys = $values = array();
+	        foreach ($cssStandards as $key => $value) {
+			    $keys[] = '%' . $key . '%';
+			    $values[] = $value;
+	        }
+	        return str_replace($keys, $values, $content);
         }
-        return str_replace($keys, $values, $content);
+        return $content;
 	}
     
     
@@ -133,13 +125,24 @@ class Leaf {
 			$blade_file = 'leaf.' . $leaf['style'];
 			
 			if ( $leaf['style'] != 'index' ) {
-				return response()->view($blade_file, compact('leaf', 'base', 'menu'), '200');
+				return $this->leafReturn($blade_file, compact('leaf', 'base', 'menu'), '200');
 			}
-			return response()->view('leaf', compact('leaf', 'base', 'menu'), '200'); /// to be changed later !!!
+			return $this->leafReturn('iba::leaf', compact('leaf', 'base', 'menu'), '200'); /// to be changed later !!!
 		}
-		return 	response()->view('leaf', compact('leaf', 'base', 'menu'), '200');
+		return 	$this->leafReturn('iba::leaf', compact('leaf', 'base', 'menu'), '200');
 	}
 	
+	public function leafReturn($view, $function)
+	{
+		if ( !request()->wantsJson() )
+		{
+			return response()->view($view, $function);
+		}
+		else
+		{
+			return response()->json($function);
+		}
+	}
 	
 	public function constructMenu($base) {
 		$directories = [];

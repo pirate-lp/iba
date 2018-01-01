@@ -3,6 +3,7 @@
 namespace DummyNamespace;
 
 use LILPLP\IBA\Http\Controllers\BookController;
+use Illuminate\Http\Request as Request;
 
 use App\DummyModelClass;
 
@@ -31,8 +32,8 @@ class DummyClass extends BookController
 		return response()->backend($DummyModelVariable);
     }
     
-    public function update(Request $request, $id)
-    {	
+    public function update(Request $request, DummyModelClass $DummyModelVariable)
+    {
 	    // REQUIRED :: add what inputs to accept from the user ...
 		$values = $request->only([]);
 		$DummyModelVariable = $this->class::find($id);

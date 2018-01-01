@@ -5,6 +5,8 @@ namespace LILPLP\IBA\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
+use Illuminate\Support\Str;
+
 class BookMakeCommand extends Command
 {
 	protected $signature = 'book:make {type}';

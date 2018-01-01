@@ -5,39 +5,54 @@ namespace LILPLP\IBA\Http\Controllers;
 use LILPLP\IBA\People;
 use LILPLP\IBA\Keyword;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Controller as Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Contracts\Routing\ResponseFactory;
 
 class AnalogController extends Controller
 {
-    //
-    public $bookTypes;
-    
-    public function __construct() {
-	    $this->bookTypes = config('iba.book_types');
-    }
-    
-    public function index()
-    {
-	    return view('iba::index');
-    }
+	//
+	public $books;
+	
+	public function __construct() {
+		$this->books = config('iba.book_types');
+	}
+	
+	public function index()
+	{
+		$books = [];
+		foreach ($this->books as $key => $book)
+		{
+			
+			$request = Request::create('iba/analog/' . $book . '/dashboard/', 'GET');
+			$response = Route::dispatch($request);
+			$books[$key] = json_decode($response->content());
+// 			redirect('iba/analog/' . $book . '/dashboard/')->getOriginalContent();
+		}
+		return view('iba::index', compact('books'));
+	}
 
-    public function keywords()
-    {
-	    return Keyword::all();
-    }
+	public function keywords()
+	{
+		return Keyword::all();
+	}
 
-    public function people()
-    {
-	    return People::all();
-    }
+	public function people()
+	{
+		return People::all();
+	}
 
-    public function apiHome()
-    {
-	    return view('backend.apiIndex');
-    }
+	public function apiHome()
+	{
+		return view('backend.apiIndex');
+	}
 
-    public function apiIndex()
-    {
-	    return $this->bookTypes;
-    }
+	public function apiIndex()
+	{
+		return $this->books;
+	}
+	
 }

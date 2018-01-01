@@ -1,12 +1,21 @@
+@import '~plp-css-base/dist/main';
+// @import "blaze/blaze.scss";
+
+/*
 @import "node_modules/purecss/build/pure-min";
-@import "node_modules/purecss/build/grids-responsive-min";
-@import "node_modules/flatpickr/dist/flatpickr.min";
+@import "node_modules/purecss/build/grids-responsive-min";*/
+@import "~flatpickr/dist/flatpickr.min";
+
 
 $fa-font-path: "/../lil-plp/iba/fonts";
 @import "node_modules/font-awesome/scss/font-awesome";
-@import "blaze/blaze.scss";
 
 
+// @import "/fonts";
+
+body {
+	background-color: #577583;
+}
 
 .aside-main-menu ul > li a {
 	padding-right: 0.5rem;

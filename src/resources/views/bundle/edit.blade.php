@@ -3,9 +3,10 @@
 @section('main')
 
 <article class="shadw">
-<h2>New Bundle</h2>
+<h2>Editing Bundle</h2>
 
-<form class="pure-form pure-form-stacked" action="/iba/analog/bundle/" method="post">
+<form class="pure-form pure-form-stacked" action="/iba/analog/bundle/{{ $book->id }}/" method="post">
+{{ method_field('PUT') }}
 {{ csrf_field() }}
 <div class="pure-g">
 

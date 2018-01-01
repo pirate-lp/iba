@@ -16,7 +16,7 @@ Editing {{ title_case($type) }}
 	</div>
 @endif
 
-<form class="iba-main-form" action="/iba/analog/{{ $type }}/{{ $book->id }}/" method="POST">
+<form class="iba-main-form pure-form pure-form-aligned" action="/iba/analog/{{ $type }}/{{ $book->id }}/" method="POST">
 	{{ method_field('PUT') }}
 	{{ csrf_field() }}
 

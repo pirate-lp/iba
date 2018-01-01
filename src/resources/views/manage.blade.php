@@ -5,7 +5,6 @@ Managing {{ title_case($type) }}
 @endpush
 
 @section('main')
-
 <article class="shadow" style="overflow: visible;">
 	<header>
 		<h2>{{ title_case($type) }} | List of all</h2>

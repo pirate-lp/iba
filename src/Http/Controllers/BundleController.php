@@ -84,12 +84,12 @@ class BundleController extends BookController
     
     public function update(Request $request, $id)
     {
-		$bundle = Bundle::find($id);
 	    $this->validate($request, [
 	        'title' => 'required'
 	    ]);
 	    $values = $request->only(['title', 'slug', 'subtitle', 'description']);
-		
+		$bundle = Bundle::find($id);
+		$bundle->type = $request->type;
 		$bundle->revise($values);
 		
 		$bundle->save();

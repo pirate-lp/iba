@@ -50,7 +50,7 @@ trait BookProduceDimensions {
 	
 	public function storeThumbnail($values)
 	{	
-		if ( !empty($values['thumbnail']['name']) )
+		if ( implode('',$values['thumbnail']) != '' )
 		{
 			$thumbnail['path'] = ( !empty($values['thumbnail']['path']) ) ? $values['thumbnail']['path'] : null;
 			$thumbnail['name'] = ( !empty($values['thumbnail']['name']) ) ? $values['thumbnail']['name'] : null;
@@ -108,7 +108,6 @@ trait BookProduceDimensions {
 	{
 		if ( $values['slug'] !== '' )
 		{
-			$values['slug'] = str_slug($values['title']);
 			if ( $this->slug )
 			{
 				$slug = $this->slug;
@@ -172,7 +171,7 @@ trait BookProduceDimensions {
 	
 	public function storeOrUpdateThumbnail($values)
 	{
-		if ($values['thumbnail']['name'] != '')
+		if (implode('',$values['thumbnail']) != '')
 		{
 			if ( $this->thumbnail )
 			{

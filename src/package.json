@@ -9,7 +9,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "laravel-mix": "^0.8.9",
@@ -22,9 +22,10 @@
     "jquery-bridget": "^2.0.1",
     "jquery-smooth-scroll": "^2.2.0",
     "microplugin": "0.0.3",
-    "moment": "^2.18.1",
+    "moment": "^2.20.1",
+    "plp-css-base": "^1.0.3",
     "purecss": "^0.6.2",
-    "sifter": "^0.5.2",
+    "sifter": "^0.5.3",
     "sticky-kit": "^1.1.3",
     "underscore": "^1.8.3"
   }

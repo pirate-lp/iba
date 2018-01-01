@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 use App;
@@ -31,6 +31,26 @@ class BookController extends Controller
 		    $this->class = "LILPLP\\IBA\\Bundle";
 	    }
 */
+    }
+    
+    public function dashboard()
+    {
+	    $r['name'] = $this->type;
+	    $r['count'] = $this->class::count();
+// 	    $r['size'] = 0;
+	    $r['size'] = $this->get_dir_size();
+	    return $r;
+    }
+    
+    private function get_dir_size()
+    {
+	    $dir_size = 0;
+		$dir = storage_path() . "/ibook/" . $this->class::$storageName . "/";
+		foreach( File::allFiles($dir) as $file)
+		{
+			$dir_size += $file->getSize();
+		}
+		return number_format($dir_size / 1048576,2);
     }
     
     public function manage()

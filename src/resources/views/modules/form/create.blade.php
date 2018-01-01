@@ -4,36 +4,36 @@
 		<div style="margin: 0.4rem;">
 	
 		@if (in_array('title', $book->dimensions))
-			<div class="control field is-horizontal">
-				<div class="field-label is-small"><label class="label">Title</label></div>
-				<input name="title" type="text" class="c-field" placeholder="A title">
+			<div class="pure-control-group">
+				<label class="label">Title</label>
+				<input name="title" type="text"  placeholder="A title">
 			</div>
 		@endif
 		
 		@if (in_array('subtitle', $book->dimensions))
-			<div class="control field is-horizontal">
-				<div class="field-label is-small"><label class="label">Subtitle</label></div>
-				<input name="subtitle" type="text" class="c-field" placeholder="A title">
+			<div class="pure-control-group">
+				<label class="label">Subtitle</label>
+				<input name="subtitle" type="text"  placeholder="A title">
 			</div>
 		@endif
 		
 		@if (in_array('slug', $book->dimensions))
-			<div class="control field is-horizontal">
-				<div class="field-label is-small"><label class="label">Slug</label></div>
-				<input name="slug" type="text" class="c-field" placeholder="A title">
+			<div class="pure-control-group">
+				<label class="label">Slug</label>
+				<input name="slug" type="text"  placeholder="A title">
 			</div>
 		@endif
 		
 		@if (in_array('description', $book->dimensions))
 			<div class="field is-horizontal">
-				<div class="field-label is-small"><label class="label">Description</label></div>
+				<label class="label">Description</label>
 				<div class="field-body">
-					<textarea name="description" class="c-field" type="text" placeholder="Description"></textarea>
+					<textarea name="description"  type="text" placeholder="Description"></textarea>
 				</div>
 			</div>
 		@endif
 			
-			<textarea class="c-field" placeholder="Textareas work too" name="content"></textarea>
+			<textarea  placeholder="Textareas work too" name="content"></textarea>
 	
 		</div>
 		
@@ -95,12 +95,12 @@
 		<div class="c-card">
 			<div class="c-card__item c-card__item--divider">Thumbnail</div>
 			<div class="c-card__item">
-				<input placeholder="location of file" class="c-field" type="text" name="thumbnail[path]">
-				<input placeholder="File name" class="c-field" type="text" name="thumbnail[name]">
+				<input placeholder="location of file"  type="text" name="thumbnail[path]">
+				<input placeholder="File name"  type="text" name="thumbnail[name]">
 			</div>
 			<div class="c-card__item">
-				<input placeholder="Photographer" class="c-field" type="text" name="thumbnail[photographer]">
-				<input placeholder="Link to photographer's profile" class="c-field" type="text" name="thumbnail[link]">
+				<input placeholder="Photographer"  type="text" name="thumbnail[photographer]">
+				<input placeholder="Link to photographer's profile"  type="text" name="thumbnail[link]">
 			</div>
 		</div>
 		@endif
@@ -150,9 +150,9 @@
 			@if ( isset($bundles) )
 	   			@foreach ( $bundles as $key => $values )
 					<div class="c-card__item">
-						<div class="control field is-horizontal">
-							<div class="field-label is-small"><label class="label">{{ $key }}</label></div>
-							<select name="bundles[]" class="c-field">
+						<div class="pure-control-group">
+							<label class="label">{{ $key }}</label>
+							<select name="bundles[]" >
 								<option value=''></option>
 							@foreach ( $values as $value )
 								<option value="{{ $value->toJson() }}"
@@ -170,20 +170,20 @@
 		<div class="c-card">
 			<div class="c-card__item c-card__item--divider">Dates</div>
 			<div class="c-card__item">
-				<div class="control field is-horizontal">
-					<div class="field-label is-small"><label class="label">Draft</label></div>
+				<div class="pure-control-group">
+					<label class="label">Draft</label>
 					<input class="c-field flatpickr" name="timestamp[draft]" type="text" >
 				</div>
 			</div>
 			<div class="c-card__item">
-				<div class="control field is-horizontal">
-					<div class="field-label is-small"><label class="label">Published</label></div>
+				<div class="pure-control-group">
+					<label class="label">Published</label>
 					<input class="c-field flatpickr" name="timestamp[publish]" type="text" >
 				</div>
 			</div>
 			<div class="c-card__item">
-				<div class="control field is-horizontal">
-					<div class="field-label is-small"><label class="label">Amended</label></div>
+				<div class="pure-control-group">
+					<label class="label">Amended</label>
 					<input class="c-field flatpickr" name="timestamp[amend]" type="text" >
 				</div>
 			</div>

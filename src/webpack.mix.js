@@ -10,28 +10,9 @@ const { mix } = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.options({ processCssUrls: false })  
+// mix.options({ processCssUrls: false })  
 mix.js('resources/assets/js/analog.js', 'public/js/')
 	.js('resources/assets/js/selectize.js', 'public/js/')
 	.sass('resources/assets/sass/selectize.scss', 'public/css')
-	.sass('resources/assets/sass/style.scss', 'public/css')
-	.sass('resources/assets/sass/fonts.scss', 'public/css');
-   
-/*
-mix.copy([
-    'node_modules/purecss/build/grids-responsive-min.css'
-], 'public/css/pure-responsive.css');
-
-mix.copy([
-	'node_modules/purecss/build/pure-min.css',
-], 'public/css/pure.css');
-
-mix.combine([
-	'node_modules/purecss/build/pure-min.css',
-	'node_modules/purecss/build/grids-responsive-min.css',
-    'resources/assets/sass/grid.scss'
-], 'public/css/pure.css');
-*/
-
-mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
+	.sass('resources/assets/sass/style.scss', 'public/css');
 

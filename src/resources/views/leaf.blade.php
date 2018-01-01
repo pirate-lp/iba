@@ -1,12 +1,19 @@
 @extends('iba::master')
 
-@push('title') {{ $page['title'] }} | {{ $base['title'] }} @endpush
+@push('title') {{ $leaf['title'] }} | {{ $base['title'] }} @endpush
 
-@if ( array_key_exists('description', $page) )
-	@push('description'){{ $page['description'] }}@endpush
+@if ( array_key_exists('description', $leaf) )
+	@push('description'){{ $leaf['description'] }}@endpush
 @endif
 
-@section('cssclass', $base['template'])
+@section('cssclass')
+	@if(array_key_exists('template',$leaf))
+		{{ $leaf['template'] }}
+	@endif
+	@if(array_key_exists('template',$base))
+		{{ $base['template'] }}
+	@endif
+@endsection
 
 @section('body')
 
@@ -40,12 +47,12 @@
 
 @section('main')
 
-{!! $page['content'] !!}
+{!! $leaf['content'] !!}
 
 @show
 
-@if ( isset($page['style']) && $page['style'] == 'index' )
-	@include('ideas.index', ['idea' => $page['title'] ])
+@if ( isset($leaf['style']) && $leaf['style'] == 'index' )
+	@include('ideas.index', ['idea' => $leaf['title'] ])
 @endif
 
 @endsection

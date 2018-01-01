@@ -9,7 +9,7 @@ Route::prefix('/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(['we
 		Route::post('/', 'BundleController@store');
 		Route::get('/create/', 'BundleController@create');
 		Route::get('/{id}/edit', 'BundleController@edit');
-		Route::patch('/{id}/', 'BundleController@update');
+		Route::put('/{id}/', 'BundleController@update');
 	});
 	
 });
@@ -27,7 +27,7 @@ Route::prefix('/api/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(
 		Route::post('/', 'BundleController@store');
 		Route::get('/create/', 'BundleController@create');
 		Route::get('/{id}/edit', 'BundleController@edit');
-		Route::patch('/{id}/', 'BundleController@update');
+		Route::put('/{id}/', 'BundleController@update');
 	});
 });
 

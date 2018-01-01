@@ -16,6 +16,8 @@ use LILPLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
 use LILPLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
 use LILPLP\IBA\Console\BookMakeCommand;
 
+use Illuminate\Routing\Router;
+
 class IBAServiceProvider extends Provider
 {
 	/**
@@ -48,6 +50,8 @@ class IBAServiceProvider extends Provider
 	        ]);
 	    }
 		
+		
+		
 		Response::macro('backend', function ($book)
 		{
 			if ( in_array('web', Route::current()->computedMiddleware) )
@@ -60,6 +64,79 @@ class IBAServiceProvider extends Provider
 			}
 		});
 			
+		
+		
+		
+		
+		
+		
+		View::composer('iba::modules.create', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::modules.create', function($view) {
+	        $view->with('peoples', People::select('id', 'name')->get());
+        });
+        
+        View::composer('iba::create', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::create', function($view) {
+	        $view->with('peoples', People::select('id', 'name')->get());
+        });
+        
+        View::composer('iba::modules.edit', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+        View::composer('iba::amalog.modules.edit', function($view) {
+	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
+// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
+        });
+        View::composer('iba::edit', function($view) {
+	        $view->with('keywords', Keyword::select('id', 'word')->get());
+        });
+         View::composer('iba::edit', function($view) {
+	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
+// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
+        });
+		
+				
+	}
+
+	/**
+	 * Register the application services.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		if (!Router::hasMacro('iba')) {
+            $this->registerRouteMacro();
+        }
+        
+        if (!Response::hasMacro('asset'))
+        {
+	        $this->registerResponseMacro();
+        }
+		$this->app->singleton('Illuminate\Contracts\Debug\ExceptionHandler','LILPLP\IBA\Exceptions\Handler');
+	}
+	
+	public function registerRouteMacro()
+	{
+		Router::macro('iba', function($slug, $controller)
+		{
+			Router::get('/' . $slug .'/', $controller . '@manage');
+			Router::get('/' . $slug .'/create/', $controller . '@create');
+			Router::get('/' . $slug .'/{' . $slug . '}/edit', $controller . '@edit');
+			Router::put('/' . $slug .'/{' . $slug . '}/', $controller . '@update');
+			Router::post('/' . $slug .'/', $controller . '@store');
+			
+			
+			Router::get('/' . $slug .'/dashboard/', $controller . '@dashboard');
+		});
+	}
+	
+	public function registerResponseMacro()
+	{
 		Response::macro('asset', function ($asset_name, $uri, $disk = "ibook")
 		{
 			if ( substr($asset_name, -3) == 'mp4' )
@@ -150,50 +227,5 @@ class IBAServiceProvider extends Provider
 				]);
 			}
 		});
-		
-		
-		
-		
-		
-		View::composer('iba::modules.create', function($view) {
-	        $view->with('keywords', Keyword::select('id', 'word')->get());
-        });
-        View::composer('iba::modules.create', function($view) {
-	        $view->with('peoples', People::select('id', 'name')->get());
-        });
-        
-        View::composer('iba::create', function($view) {
-	        $view->with('keywords', Keyword::select('id', 'word')->get());
-        });
-        View::composer('iba::create', function($view) {
-	        $view->with('peoples', People::select('id', 'name')->get());
-        });
-        
-        View::composer('iba::modules.edit', function($view) {
-	        $view->with('keywords', Keyword::select('id', 'word')->get());
-        });
-        View::composer('iba::amalog.modules.edit', function($view) {
-	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
-// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
-        });
-        View::composer('iba::edit', function($view) {
-	        $view->with('keywords', Keyword::select('id', 'word')->get());
-        });
-         View::composer('iba::edit', function($view) {
-	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
-// 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
-        });
-		
-				
-	}
-
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		$this->app->singleton('Illuminate\Contracts\Debug\ExceptionHandler','LILPLP\IBA\Exceptions\Handler');
 	}
 }
