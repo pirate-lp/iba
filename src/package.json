@@ -24,6 +24,7 @@
     "microplugin": "0.0.3",
     "moment": "^2.20.1",
     "plp-css-base": "^1.0.3",
+    "plp-css-elements": "^1.2.8",
     "purecss": "^0.6.2",
     "sifter": "^0.5.3",
     "sticky-kit": "^1.1.3",

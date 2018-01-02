@@ -105,6 +105,9 @@ abstract class Book extends Model {
 	public function content()
 	{
 		$uri = static::$storageName . '/' . $this->loc . '/main.md';
+		if ( !Storage::disk('ibook')->exists($uri) ) {
+			return null;
+		}
 		$content = Storage::disk('ibook')->get($uri);
 		$extra = new ParsedownExtra();
 		$HTMLContent = $extra->text($content);

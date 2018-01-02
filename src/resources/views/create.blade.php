@@ -1,12 +1,12 @@
 @extends('iba::base')
 
 @push('title')
-Creating {{ title_case($type) }}
+<span class="h2">New {{ title_case($type) }}</span>
 @endpush
 
 @section('main')
 
-	<article class="shadow" style="overflow: visible;">
+	<div style="overflow: visible;">
 	
 		{{--<h2>New {{ title_case($type) }}</h2>--}}
 	
@@ -16,10 +16,10 @@ Creating {{ title_case($type) }}
 			
 			@include('iba::modules.form.create')
 			
-			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Create</button>
+			<button type="submit" class="pure-button pure-button-primary">Create</button>
 			
 		</form>
 		
-	</article>
+	</div>
 
 @endsection

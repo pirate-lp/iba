@@ -1,4 +1,7 @@
-@import '~plp-css-base/dist/main';
+$fa-font-path: "/../lil-plp/iba/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+@import '~plp-css-elements/src/style';
 // @import "blaze/blaze.scss";
 
 /*
@@ -6,10 +9,7 @@
 @import "node_modules/purecss/build/grids-responsive-min";*/
 @import "~flatpickr/dist/flatpickr.min";
 
-
-$fa-font-path: "/../lil-plp/iba/fonts";
-@import "node_modules/font-awesome/scss/font-awesome";
-
+@import "/elements/text-editor";
 
 // @import "/fonts";
 

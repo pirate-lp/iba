@@ -1,40 +1,53 @@
+<div class="c-card c-card--accordion u-high">
+	
+	<input type="checkbox" id="accordion-1">
+	<label class="c-card__item c-card__item--divider" for="accordion-1">Text</label>
+	
+	<div class="pure-group c-card__item">
+		<textarea name="content" class="text-editor pure-input-1" type="text" placeholder="Content of the book ..." >@if (method_exists($book, 'content')){!! $book->content() !!}@endif</textarea>
+	</div>
+</div>
+
+@if ( !isset($thumbnail))
+	<div class="c-card c-card--accordion u-high">
+		<input type="checkbox" id="accordion-2">
+		<label class="c-card__item c-card__item--divider" for="accordion-2">Thumbnail</label>
+		
+		<div class="pure-group c-card__item">
+			<input placeholder="location of file" class="c-field" type="text" name="thumbnail[path]" value="{{ $book->thumbnail->path or '' }}">
+			<input placeholder="File name" class="c-field" type="text" name="thumbnail[name]" value="{{ $book->thumbnail->name or '' }}">
+			<input placeholder="Photographer" class="c-field" type="text" name="thumbnail[photographer]" value="{{ $book->thumbnail->photographer or '' }}">
+			<input placeholder="Link to photographer's profile" class="c-field" type="text" name="thumbnail[link]" value="{{ $book->thumbnail->link or '' }}">
+		</div>
+		
+	</div>
+@endif
+
 <div class="pure-g">
 	<div class="pure-u-1-1 pure-u-md-5-8">
 		
-		<div style="margin: 0.4rem;">
-	
-		@if (in_array('title', $book->dimensions))
-			<div class="pure-control-group">
-				<label class="label">Title</label>
-				<input name="title" type="text"  placeholder="A title">
-			</div>
-		@endif
-		
-		@if (in_array('subtitle', $book->dimensions))
-			<div class="pure-control-group">
-				<label class="label">Subtitle</label>
-				<input name="subtitle" type="text"  placeholder="A title">
-			</div>
-		@endif
-		
-		@if (in_array('slug', $book->dimensions))
-			<div class="pure-control-group">
-				<label class="label">Slug</label>
-				<input name="slug" type="text"  placeholder="A title">
-			</div>
-		@endif
-		
-		@if (in_array('description', $book->dimensions))
-			<div class="field is-horizontal">
-				<label class="label">Description</label>
-				<div class="field-body">
-					<textarea name="description"  type="text" placeholder="Description"></textarea>
-				</div>
-			</div>
-		@endif
+		<div class="c-card c-card--accordion u-high">
+			@if (in_array('title', $book->dimensions))
+
+<!-- 					<div class="field-label is-small"><label class="label">Title</label></div> -->
+				<input name="title" type="text" class="pure-input-1" placeholder="Title" value="{{ $book->title->value or ''}}">
+			@endif
 			
-			<textarea  placeholder="Textareas work too" name="content"></textarea>
-	
+			@if (in_array('subtitle', $book->dimensions))
+<!-- 					<div class="field-label is-small"><label class="label">Subtitle</label></div> -->
+				<input name="subtitle" type="text" class="pure-input-1" placeholder="Subtitle" value="{{ $book->subtitle->value or ''}}">
+			@endif
+			
+			@if (in_array('slug', $book->dimensions))
+<!-- 					<div class="field-label is-small"><label class="label">Slug</label></div> -->
+				<input name="slug" type="text" class="pure-input-1" placeholder="Slug" value="{{ $book->slug->value or ''}}">
+			@endif
+			
+			@if (in_array('description', $book->dimensions))
+<!-- 					<div class="field-label is-small"><label class="label">Description</label></div> -->
+				<textarea name="description" class="pure-input-1" type="text" placeholder="Description">{{ $book->description->value or '' }}</textarea>
+			@endif
+			
 		</div>
 		
 		<div class="c-card">
@@ -45,9 +58,9 @@
 			
 			@foreach ( $roles as $role )
 			
-			<div class="c-card__item">
+			<div class="c-card__item pure-form pure-form-stacked">
 				<div class="control field">
-					<label class="label is-small">{{ title_case($role) }}</label>
+					<label>{{ title_case($role) }}</label>
 					<input id="{{ $role }}" name="people[{{ $role }}]" type="text" style="display: none;">
 					<div id="{{ $role }}-field"></div>
 				</div>
@@ -90,21 +103,28 @@
 	</div>
 	
 	<div class="pure-u-1-1 pure-u-md-3-8">
-		
-		@if ( !isset($thumbnail))
+	
 		<div class="c-card">
-			<div class="c-card__item c-card__item--divider">Thumbnail</div>
-			<div class="c-card__item">
-				<input placeholder="location of file"  type="text" name="thumbnail[path]">
-				<input placeholder="File name"  type="text" name="thumbnail[name]">
-			</div>
-			<div class="c-card__item">
-				<input placeholder="Photographer"  type="text" name="thumbnail[photographer]">
-				<input placeholder="Link to photographer's profile"  type="text" name="thumbnail[link]">
+			<div class="c-card__item c-card__item--divider">Dates</div>
+			<div class="c-card__item pure-control-group">
+				<label>Draft</label>
+				<input class="flatpickr" name="timestamp[draft]" type="text" @if ( isset($book->timestamp->draft) )
+						value="{{ $book->timestamp->draft->toDateString() }}"
+					@endif
+					>
+				<label>Publish</label>
+				<input class="flatpickr" name="timestamp[publish]" type="text" @if (isset($book->timestamp->publish) )
+					value="{{ $book->timestamp->publish->toDateString() }}"
+				@endif
+				>
+				<label>Amend</label>
+				<input class="flatpickr" name="timestamp[amend]" type="text" @if ( isset($book->timestamp->amend) )
+						value="{{ $book->timestamp->amend->toDateString() }}"
+					@endif
+					>
 			</div>
 		</div>
-		@endif
-		
+	
 		<div class="c-card">
 			<div class="c-card__item c-card__item--divider">Keywords</div>
 			<div class="c-card__item">
@@ -165,28 +185,7 @@
 					</div>
 				@endforeach
 			@endif
-		</div>	
-
-		<div class="c-card">
-			<div class="c-card__item c-card__item--divider">Dates</div>
-			<div class="c-card__item">
-				<div class="pure-control-group">
-					<label class="label">Draft</label>
-					<input class="c-field flatpickr" name="timestamp[draft]" type="text" >
-				</div>
-			</div>
-			<div class="c-card__item">
-				<div class="pure-control-group">
-					<label class="label">Published</label>
-					<input class="c-field flatpickr" name="timestamp[publish]" type="text" >
-				</div>
-			</div>
-			<div class="c-card__item">
-				<div class="pure-control-group">
-					<label class="label">Amended</label>
-					<input class="c-field flatpickr" name="timestamp[amend]" type="text" >
-				</div>
-			</div>
 		</div>
+		
 	</div>
 </div>
