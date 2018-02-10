@@ -26,7 +26,7 @@
 <div class="pure-g">
 	<div class="pure-u-1-1 pure-u-md-5-8">
 		
-		<div class="c-card c-card--accordion u-high">
+		<div class="pure-group c-card c-card--accordion u-high">
 			@if (in_array('title', $book->dimensions))
 
 <!-- 					<div class="field-label is-small"><label class="label">Title</label></div> -->

@@ -77,11 +77,11 @@ abstract class Book extends Model {
 	}
 	public function bundle($type)
 	{
-		return $this->bundles()->where('type', $type);   
+		return $this->bundles()->where('type', $type);
 	}
 	public function bundleSingle($type)
 	{
-		return $this->bundles()->where('type', $type)->first();   
+		return $this->bundles()->where('type', $type)->first();
 	}
 	
 	
@@ -112,6 +112,26 @@ abstract class Book extends Model {
 		$extra = new ParsedownExtra();
 		$HTMLContent = $extra->text($content);
 		return $HTMLContent;
+	}
+	
+	public function getContentAttribute()
+	{
+		$uri = static::$storageName . '/' . $this->loc . '/main.md';
+		if ( !Storage::disk('ibook')->exists($uri) ) {
+			return null;
+		}
+		$content = Storage::disk('ibook')->get($uri);
+		$extra = new ParsedownExtra();
+		$HTMLContent = $extra->text($content);
+		return $HTMLContent;
+	}
+	public function getContentRawAttribute()
+	{
+		$uri = static::$storageName . '/' . $this->loc . '/main.md';
+		if ( !Storage::disk('ibook')->exists($uri) ) {
+			return null;
+		}
+		return Storage::disk('ibook')->get($uri);
 	}
 	
 /*  💛❤️ Further development!

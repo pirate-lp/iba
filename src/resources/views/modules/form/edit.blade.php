@@ -4,7 +4,7 @@
 	<label class="c-card__item c-card__item--divider" for="accordion-1">Text</label>
 	
 	<div class="pure-group c-card__item">
-		<textarea name="content" class="text-editor pure-input-1" type="text" placeholder="Content of the book ..." >@if (method_exists($book, 'content')){!! $book->content() !!}@endif</textarea>
+		<textarea name="content" class="text-editor pure-input-1" type="text" placeholder="Content of the book ..." >@if(method_exists($book, 'content')){!! $book->content_raw !!}@endif</textarea>
 	</div>
 </div>
 
@@ -26,7 +26,7 @@
 <div class="pure-g">
 	<div class="pure-u-1-1 pure-u-md-5-8">
 		
-		<div class="c-card c-card--accordion u-high">
+		<div class="pure-group c-card c-card--accordion u-high">
 			@if (in_array('title', $book->dimensions))
 
 <!-- 					<div class="field-label is-small"><label class="label">Title</label></div> -->

@@ -35,17 +35,20 @@ class BookController extends Controller
     
     public function dashboard()
     {
-	    $r['name'] = $this->type;
 	    $r['count'] = $this->class::count();
-// 	    $r['size'] = 0;
-	    $r['size'] = $this->get_dir_size();
-	    return $r;
+		$r['name'] = $this->type;
+		$r['size'] = $this->get_dir_size();
+		return $r;
     }
     
     private function get_dir_size()
     {
 	    $dir_size = 0;
 		$dir = storage_path() . "/ibook/" . $this->class::$storageName . "/";
+		if ( !is_dir($dir) )
+		{
+			return "no directory";
+		}
 		foreach( File::allFiles($dir) as $file)
 		{
 			$dir_size += $file->getSize();

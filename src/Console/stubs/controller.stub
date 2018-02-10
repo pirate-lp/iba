@@ -10,16 +10,16 @@ use App\DummyModelClass;
 class DummyClass extends BookController
 {
 	public $type = 'DummyModelVariable';
-    public $class = DummyModelClass::class;
-    public $roles = [];
-    public $bundleTypes = [];
-    
-    public function store(Request $request)
-    {
-	    // add your validation
-	    $request->validate([]);
-	    
-	    // REQUIRED :: add what inputs to accept from the user ...
+	public $class = DummyModelClass::class;
+	public $roles = [];
+	public $bundleTypes = [];
+	
+	public function store(Request $request)
+	{
+		// add your validation
+		$request->validate([]);
+		
+		// REQUIRED :: add what inputs to accept from the user ...
 		$values = $request->only([]);
 		
 		$DummyModelVariable = new $this->class;
@@ -30,11 +30,11 @@ class DummyClass extends BookController
 		$DummyModelVariable->save();
 		
 		return response()->backend($DummyModelVariable);
-    }
-    
-    public function update(Request $request, DummyModelClass $DummyModelVariable)
-    {
-	    // REQUIRED :: add what inputs to accept from the user ...
+	}
+	
+	public function update(Request $request, $id)
+	{
+		// REQUIRED :: add what inputs to accept from the user ...
 		$values = $request->only([]);
 		$DummyModelVariable = $this->class::find($id);
 		$DummyModelVariable->revise($values);
@@ -42,5 +42,5 @@ class DummyClass extends BookController
 		$DummyModelVariable->save();
 		
 		return response()->backend($DummyModelVariable);
-    }
+	}
 }

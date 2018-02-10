@@ -27,6 +27,8 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
+		$this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
+		
 		$this->publishes([
         	__DIR__.'/config/iba.php' => config_path('iba.php'),
 		]);
@@ -99,7 +101,8 @@ class IBAServiceProvider extends Provider
 // 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
         });
 		
-				
+		
+		
 	}
 
 	/**

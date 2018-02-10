@@ -34,11 +34,23 @@ Dashboard
 		</article>
 	</div>
 	<div class="pure-u-1-1 pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-2">
-		<article class="shadow">
-			<h3>Interactibe Books' Atelier</h3>
-			<h4>Tips</h4>
-			<h4>News</h4>
-		</article>
+		<div class="c-card u-heigh">
+			<div class="c-card__item c-card__item--divider">Settings</div>
+			<div class="c-card__item">
+				<p class="c-paragraph">To be developed ...</p>
+				<p class="c-paragraph">Control panel</p>
+				<p class="c-paragraph">Account</p>
+			</div>
+		</div>
+		<div class="c-card u-heigh">
+			<div class="c-card__item c-card__item--divider">Information</div>
+			<div class="c-card__item">
+				<p class="c-paragraph">You are running</p>
+				<p class="c-paragraph">Interactive Books' Atelier, version: 0.8.x</p>
+				<p class="c-paragraph">Design & developed by Hossein from scratch at Pirate's Lost Pearl ...</p>
+				<p class="c-paragraph">Thanks for choosing Interactive Books' Atelier</p>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

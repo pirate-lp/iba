@@ -4,6 +4,11 @@ namespace LILPLP\IBA;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\EncryptCookies;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Session\Middleware\StartSession;
+
 use ParsedownExtra;
 
 use Symfony\Component\Yaml\Yaml;
@@ -68,6 +73,7 @@ class Leaf {
     public function render($file, $disk = 'seed')
 	{
 	    $leaf = $this->retriveMetas($file, $disk);
+	    $this->check_status($leaf);
 	    $rawContent = Storage::disk($disk)->get($file);
 	    $leaf['slug'] = $this->slug;
 	    
@@ -123,13 +129,24 @@ class Leaf {
 		if ( array_key_exists('style', $leaf) )
 		{
 			$blade_file = 'leaf.' . $leaf['style'];
-			
-			if ( $leaf['style'] != 'index' ) {
-				return $this->leafReturn($blade_file, compact('leaf', 'base', 'menu'), '200');
-			}
-			return $this->leafReturn('iba::leaf', compact('leaf', 'base', 'menu'), '200'); /// to be changed later !!!
+			return $this->leafReturn($blade_file, compact('leaf', 'base', 'menu'), '200');
 		}
 		return 	$this->leafReturn('iba::leaf', compact('leaf', 'base', 'menu'), '200');
+	}
+	
+	public function check_status($leaf)
+	{
+		if (array_key_exists('status', $leaf))
+		{
+			if ($leaf['status'] == 'protected')
+			{
+// 				$router->aliasMiddleware('auth.user', \Path\To\Your\Middleware\custom_auth::class);
+				if (!Auth::check()) {
+					return abort(403, 'Unauthorized action.');
+				}
+			}
+		}
+		
 	}
 	
 	public function leafReturn($view, $function)

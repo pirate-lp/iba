@@ -38,7 +38,19 @@ trait BookProduction {
 	{
 		$this->reviseDimensions($values);
 		$this->reviseGroupings($values);
+		$this->reviseContent($values);
 		$this->save();
+	}
+	
+	public function reviseContent($values)
+	{
+		if ( !empty(static::$storageName) )
+		{
+			$fileUri = static::$storageName . '/' . $this->id . '/main.md';
+			Storage::disk('ibook')->put($fileUri, $values['content']);
+			$this->loc = $this->id;
+			$this->save();
+		}
 	}
 
 }
