@@ -60,8 +60,8 @@ class Leaf {
 		$base = $uri_parts[0];
 		if ( File::exists($base) )
 		{
-			$this->base = $this->retriveMetas($this->base['slug'], 'leaves');
-			$this->base['slug'] = $uri_parts[0];
+			$this->base = $this->retriveMetas($base, 'leaves');
+			$this->base['slug'] = $base;
 		}
 	}
 	
