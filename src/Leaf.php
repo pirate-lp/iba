@@ -58,11 +58,13 @@ class Leaf {
 	{
 		$uri_parts = explode('/', $this->uri);
 		$base = $uri_parts[0];
-		if ($base != "/") {
+		if ( File::exists($base) )
+		{
+			$this->base = $this->retriveMetas($this->base['slug'], 'leaves');
 			$this->base['slug'] = $uri_parts[0];
-			$this->base = $this->retriveMetas($uri_base, 'leaves');
 		}
 	}
+	
 	
 	public function cssStandards($content)
 	{
