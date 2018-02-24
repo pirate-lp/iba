@@ -27,8 +27,8 @@ class Leaf {
 	    {
 		    $uri_parts = explode('/', $uri);
 			$uri_base = $uri_parts[0] . '/index.md';
-			$this->base = $this->retriveMetas($uri_base, 'leaves');
-			$this->base['slug'] = $uri_parts[0];
+			
+			$this->constructBase();
 			$this->menu = $this->constructMenu($uri_parts[0]);
 	    }
 	    return $this->uri;
@@ -52,6 +52,16 @@ class Leaf {
 			return $asset;
 		}
 		return false;
+	}
+	
+	public function constructBase()
+	{
+		$uri_parts = explode('/', $uri);
+		$base = $uri_parts[0];
+		if ($base != "/") {
+			$this->base['slug'] = $uri_parts[0];
+			$this->base = $this->retriveMetas($uri_base, 'leaves');
+		}
 	}
 	
 	public function cssStandards($content)
@@ -88,6 +98,7 @@ class Leaf {
 	
 	public function retriveMetas($file, $disk)
 	{
+		$metas = false;
 		$rawContent = Storage::disk($disk)->get($file);
 	    $pattern = "/^(\/(\*)|---)[[:blank:]]*(?:\r)?\n"
 	 . "(?:(.*?)(?:\r)?\n)?(?(2)\*\/|---)[[:blank:]]*(?:(?:\r)?\n|$)/s";
@@ -126,6 +137,13 @@ class Leaf {
 		$leaf = $this->render($this->uri, 'leaves');
 		$base = $this->base;
 		$menu = $this->menu;
+		
+		$uri_parts = explode('/', $this->uri);
+		if ( (end($uri_parts) == "index.md") || (end($uri_parts) == "index.html") )
+		{
+			$leaf['children'] = $this->retriveChildrenMetas();
+		}
+		
 		if ( array_key_exists('style', $leaf) )
 		{
 			$blade_file = 'leaf.' . $leaf['style'];
@@ -168,5 +186,23 @@ class Leaf {
 			$directories[$sub] = Storage::disk('leaves')->directories($sub);
 		}
 		return $directories;
+	}
+	
+	public function retriveChildrenMetas()
+	{
+		$uri = rtrim($this->uri, "index.md");
+		$uri = rtrim($uri, "index.md");
+		$return = array();
+// 		dd($uri);
+// 		dd(Storage::disk('leaves')->files($uri));
+		foreach (Storage::disk('leaves')->files($uri) as $file)
+		{
+			$metas = $this->retriveMetas($file, 'leaves');
+			if ($metas != false)
+			{
+				$return[$file] = $metas;
+			}
+		}
+		return $return;
 	}
 }
