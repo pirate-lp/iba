@@ -26,8 +26,6 @@ class Leaf {
 	    if ( $this->uri )
 	    {
 		    $uri_parts = explode('/', $uri);
-			$uri_base = $uri_parts[0] . '/index.md';
-			
 			$this->constructBase();
 			$this->menu = $this->constructMenu($uri_parts[0]);
 	    }
@@ -57,8 +55,16 @@ class Leaf {
 	public function constructBase()
 	{
 		$uri_parts = explode('/', $this->uri);
-		$base = $uri_parts[0];
-		if ( File::exists($base) )
+		
+		$base = $uri_parts[0] . '/index.md';
+		if ( Storage::disk('leaves')->exists($base) )
+		{
+			$this->base = $this->retriveMetas($base, 'leaves');
+			$this->base['slug'] = $base;
+		}
+		
+		$base = $uri_parts[0] . '/index.html';
+		if ( Storage::disk('leaves')->exists($base) )
 		{
 			$this->base = $this->retriveMetas($base, 'leaves');
 			$this->base['slug'] = $base;
