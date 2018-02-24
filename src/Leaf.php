@@ -56,7 +56,7 @@ class Leaf {
 	
 	public function constructBase()
 	{
-		$uri_parts = explode('/', $uri);
+		$uri_parts = explode('/', $this->uri);
 		$base = $uri_parts[0];
 		if ($base != "/") {
 			$this->base['slug'] = $uri_parts[0];
