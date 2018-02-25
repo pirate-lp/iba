@@ -10,14 +10,16 @@
 	@if(array_key_exists('template',$leaf))
 		{{ $leaf['template'] }}
 	@endif
-	@if(array_key_exists('template',$base))
-		{{ $base['template'] }}
+	@if (isset($base))
+		@if(array_key_exists('template',$base))
+			{{ $base['template'] }}
+		@endif
 	@endif
 @endsection
 
 @section('body')
 
-@component('modules.layouts.header')
+{{--@component('modules.layouts.header')
 	@slot('title')
 		<a href="/{{ $base['slug'] }}/">{{ title_case($base['title']) }}</a>
 	@endslot
@@ -43,7 +45,7 @@
 		@endforeach
 	@endif
 	
-@endcomponent
+@endcomponent--}}
 
 @section('main')
 
