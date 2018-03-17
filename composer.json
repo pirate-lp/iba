@@ -3,7 +3,7 @@
     "description": "Interactive Books' Atelier: the future of publishing content digital ...",
     "type": "library",
     "keywords": ["flat-file CMS", "Content Management System", "CMS", "Database CMS", "Laravel CMS", "Open Source CMS", "MIT Laravel CMS", "Hybrid CMS"],
-    "homepage": "http://lostideaslab.com/pirates-lost-pearl/interactive-books-atelier/",
+    "homepage": "http://iba.piratelp.com/",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,6 @@
         }
     },
     "require": {
-        "erusev/parsedown-extra": "^0.7.1",
         "guzzlehttp/guzzle": "^6.2",
         "symfony/yaml": "^3.2",
         "michelf/php-markdown": "^1.8"
