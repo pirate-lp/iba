@@ -1,7 +1,7 @@
-@extends('iba::base')
+@extends('iba::window.master')
 
 @push('title')
-Managing {{ title_case($type) }}
+{{ title_case($type) }}<!-- | manage-->
 @endpush
 
 @section('main')

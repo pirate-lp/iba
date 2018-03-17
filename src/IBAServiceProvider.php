@@ -218,9 +218,18 @@ class IBAServiceProvider extends Provider
 
 
 			}
+			else if (substr($asset_name, -4) == 'html')
+			{
+				$uri = rtrim($uri, '.html') . '/';
+				return redirect($uri);
+			}
+			else if (substr($asset_name, -2) == 'md')
+			{
+				$uri = rtrim($uri, '.md') . '/';
+				return redirect($uri);
+			}
 			else
 			{
-				
 				$content = Storage::disk($disk)->get($uri);
 // 				dd($uri);
 				return response($content, 200)->withHeaders([

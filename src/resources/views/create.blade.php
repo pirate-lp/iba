@@ -1,7 +1,7 @@
-@extends('iba::base')
+@extends('iba::window.master')
 
 @push('title')
-<span class="h2">New {{ title_case($type) }}</span>
+	<span>{{ title_case($type) }} \ <i>(new)</i></span>
 @endpush
 
 @section('main')

@@ -11,16 +11,26 @@ use Illuminate\Session\Middleware\StartSession;
 
 use ParsedownExtra;
 
+use Michelf\Markdown as Markdown;
+use Michelf\MarkdownExtra as MarkdownExtra;
+// use Markdown;
+// use MarkdownExtra;
+// use Markdown;
+
 use Symfony\Component\Yaml\Yaml;
 
 class Leaf {
+	
 	public $type;
     public $uri;
-    protected $slug;
     public $base;
+    public $path;
+    
+    protected $slug;
     
     function __construct($uri)
     {
+	    $this->path = $uri;
 	    $this->uri = $this->exists($uri);
 // 	    dd($this->uri);
 	    if ( $this->uri )
@@ -60,14 +70,14 @@ class Leaf {
 		if ( Storage::disk('leaves')->exists($base) )
 		{
 			$this->base = $this->retriveMetas($base, 'leaves');
-			$this->base['slug'] = $base;
+			$this->base['slug'] = $uri_parts[0];
 		}
 		
 		$base = $uri_parts[0] . '/index.html';
 		if ( Storage::disk('leaves')->exists($base) )
 		{
 			$this->base = $this->retriveMetas($base, 'leaves');
-			$this->base['slug'] = $base;
+			$this->base['slug'] = $uri_parts[0];
 		}
 	}
 	
@@ -99,8 +109,16 @@ class Leaf {
 	    . "(?:(.*?)(?:\r)?\n)?(?(2)\*\/|---)[[:blank:]]*(?:(?:\r)?\n|$)/s";
 	    $content = preg_replace($metaHeaderPattern, '', $rawContent, 1);
 	    $content_css = $this->cssStandards($content);
-		$extra = new ParsedownExtra();
-		$leaf['content'] = $extra->text($content_css);
+// 		$extra = new ParsedownExtra();
+// 		$leaf['content'] = $extra->text($content_css);
+
+		$extra = new MarkdownExtra;
+// 		dd($extra);
+// 		$parser->fn_id_prefix = "post22-";
+		
+// 		$my_html = $parser->transform($my_text);
+		$leaf['content'] = $extra->transform($content_css);
+		
 	    return $leaf;
 	}
 	
@@ -147,7 +165,7 @@ class Leaf {
 		$menu = $this->menu;
 		
 		$uri_parts = explode('/', $this->uri);
-		if ( (end($uri_parts) == "index.md") || (end($uri_parts) == "index.html") )
+		if ( (end($uri_parts) == "index.md") || (end($uri_parts) == "index.html") || Storage::disk('leaves')->exists($this->path ) )
 		{
 			$leaf['children'] = $this->retriveChildrenMetas();
 		}
@@ -205,10 +223,13 @@ class Leaf {
 // 		dd(Storage::disk('leaves')->files($uri));
 		foreach (Storage::disk('leaves')->files($uri) as $file)
 		{
-			$metas = $this->retriveMetas($file, 'leaves');
-			if ($metas != false)
+			if ($file != ($this->uri) )
 			{
-				$return[$file] = $metas;
+				$metas = $this->retriveMetas($file, 'leaves');
+				if ($metas != false)
+				{
+					$return[$file] = $metas;
+				}
 			}
 		}
 		return $return;

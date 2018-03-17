@@ -1,8 +1,8 @@
-@extends('iba::base')
+@extends('iba::window.master')
 
 @push('title')
-{{--- Editing {{ title_case($type) }} --}}
-<span class="h2">{{ title_case($type) }} | </span><span class="h3">ID: {{ $book->id }}</span>
+	{{--- <span class="h2">Editing {{ title_case($type) }}</span> --}}
+	<span>{{ title_case($type) }}</span> \ <span>id: {{ $book->id }}</span>
 @endpush
 
 @section('main')

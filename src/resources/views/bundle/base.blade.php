@@ -1,4 +1,4 @@
-@extends('iba::base')
+@extends('iba::window.master')
 
 @section('main')
 	<div class="pure-g">

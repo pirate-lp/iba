@@ -1,4 +1,4 @@
-@extends('iba::base')
+@extends('iba::window.master')
 
 @push('head')
 @endpush
