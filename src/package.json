@@ -8,20 +8,20 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "7.1.4",
     "babel-preset-env": "^1.6.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "laravel-mix": "^0.8.9",
-    "lodash": "^4.17.4"
+    "lodash": "4.17.5"
   },
   "dependencies": {
     "contents": "^4.0.2",
-    "flatpickr": "^3.1.5",
-    "imagesloaded": "^4.1.3",
+    "flatpickr": "^4.3.2",
+    "imagesloaded": "4.1.4",
     "jquery-bridget": "^2.0.1",
     "jquery-smooth-scroll": "^2.2.0",
     "microplugin": "0.0.3",
-    "moment": "^2.20.1",
+    "moment": "2.21.0",
     "plp-css-app": "1.0.3",
     "purecss": "^0.6.2",
     "sifter": "^0.5.3",
