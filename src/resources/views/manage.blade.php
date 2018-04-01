@@ -5,11 +5,13 @@
 @endpush
 
 @section('main')
-<article class="shadow" style="overflow: visible;">
+<div class="pane padded-bottom-more" style="overflow: visible;">
+<!--
 	<header>
 		<h2>{{ title_case($type) }} | List of all</h2>
 	</header>
-	<table class="pure-table">
+-->
+	 <table class="table-striped">
 	    <thead>
 	        <tr>
 	            <th>#</th>
@@ -28,6 +30,6 @@
 	        @endforeach
 	    </tbody>
 	</table>
-</article>
+</div>
 
 @endsection

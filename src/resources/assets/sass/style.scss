@@ -1,1 +1,28 @@
-@import "~css-oldschool/src/style";
+@import '/selectize';
+
+@import '~css-oldschool/src/config';
+
+@font-face {
+  font-family: "photon-entypo";
+  src: url('/lil-plp/iba/fonts/photon-entypo.eot');
+  src: url('/lil-plp/iba/fonts/photon-entypo.eot?#iefix') format('eot'),
+    url('/lil-plp/iba/fonts/photon-entypo.woff') format('woff'),
+    url('/lil-plp/iba/fonts/photon-entypo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "~css-oldschool/src/custom";
+
+@import "~flatpickr/dist/flatpickr.min.css";
+
+.text-editor {
+	min-height: 80vh;
+}
+
+.panel-edit > .form-box {
+    padding: .8rem;
+    background-color: #cdcdcd;
+    border-radius: .4rem;
+    box-shadow: inset 0px 0px 1px grey;
+}

@@ -10,7 +10,10 @@ use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Yaml;
-use ParsedownExtra;
+use Michelf\Markdown as Markdown;
+use Michelf\MarkdownExtra as MarkdownExtra;
+// use Erusev\Parsedown as Parsedown;
+use ParsedownExtra as ParsedownExtra;
 
 use LILPLP\IBA\Production\BookProduction;
 use LILPLP\IBA\Dimensions;
@@ -109,21 +112,17 @@ abstract class Book extends Model {
 			return null;
 		}
 		$content = Storage::disk('ibook')->get($uri);
-		$extra = new ParsedownExtra();
-		$HTMLContent = $extra->text($content);
+
+		$extra = new MarkdownExtra;
+		$HTMLContent = $extra->transform($content);
+// 		$extra = new ParsedownExtra();
+// 		$HTMLContent = $extra->text($content);
 		return $HTMLContent;
 	}
 	
 	public function getContentAttribute()
 	{
-		$uri = static::$storageName . '/' . $this->loc . '/main.md';
-		if ( !Storage::disk('ibook')->exists($uri) ) {
-			return null;
-		}
-		$content = Storage::disk('ibook')->get($uri);
-		$extra = new ParsedownExtra();
-		$HTMLContent = $extra->text($content);
-		return $HTMLContent;
+		return $this->content();
 	}
 	public function getContentRawAttribute()
 	{

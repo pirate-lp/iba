@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="/lil-plp/iba/js/analog.js"></script>
 		
 		<link rel="stylesheet" href="/lil-plp/iba/css/style.css">
-		<link rel="stylesheet" href="/lil-plp/iba/css/selectize.css">
+<!-- 		<link rel="stylesheet" href="/lil-plp/iba/css/selectize.css"> -->
 				
 	</head>
 

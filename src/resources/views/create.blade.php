@@ -15,9 +15,9 @@
 			{{ csrf_field() }}
 			
 			@include('iba::modules.form.create')
-			
-			<button type="submit" class="pure-button pure-button-primary">Create</button>
-			
+			<div class="form-actions">
+				<button type="submit" class="btn btn-default">Create</button>
+			</div>
 		</form>
 		
 	</div>

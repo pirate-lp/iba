@@ -24,9 +24,9 @@
 			
 		
 			@include('iba::modules.form.edit')
-			
-			<button type="submit" class="pure-button pure-button-primary">Update</button>
-			
+			<div class="form-actions">
+				<button type="submit" class="btn btn-default">Update</button>
+			</div>
 		</form>
 	</div>
 @endsection

@@ -15,4 +15,6 @@ mix.js('resources/assets/js/analog.js', 'public/js/')
 	.js('resources/assets/js/selectize.js', 'public/js/')
 	.sass('resources/assets/sass/selectize.scss', 'public/css')
 	.sass('resources/assets/sass/style.scss', 'public/css');
+	
+mix.copy('node_modules/css-oldschool/src/fonts', 'public/fonts');
 
