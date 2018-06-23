@@ -82,7 +82,7 @@ abstract class Book extends Model {
 	/// fix the thing with how to find bundles without issue and sections functions rather something like: getBundle('type'), getBundle('type') alternatively run this in the construction!
 	public function bundles()
 	{
-		return $this->morphToMany(Bundle::class, 'bundleable');
+		return $this->morphToMany(Bundle::class, 'bundleable', 'bundleables');
 	}
 	public function bundle($type)
 	{
