@@ -15,6 +15,7 @@ use LILPLP\IBA\Console\ModelMakeCommand as ModelMakeCommand;
 use LILPLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
 use LILPLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
 use LILPLP\IBA\Console\BookMakeCommand;
+use LILPLP\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
 
 use Illuminate\Routing\Router;
 
@@ -27,6 +28,8 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
+		$this->app->register('LILPLP\ILeaf\ILeafServiceProvider');
+
 		$this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 		
 		$this->publishes([

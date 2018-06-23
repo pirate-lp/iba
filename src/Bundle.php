@@ -17,7 +17,7 @@ class Bundle extends Book
     
     public function items($item_type)
     {
-	    return $this->morphedByMany($item_type, 'bundleable');
+	    return $this->morphedByMany($item_type, 'bundleable', 'bundleable_id');
     }
 
 }

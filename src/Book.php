@@ -37,41 +37,47 @@ abstract class Book extends Model {
 		{
 			return $this->morphOne(Title::class, 'titleable');
 		}
+		return null;
 	}
 	public function slug()
 	{
-		if (in_array('title', static::$dimensions))
+		if (in_array('slug', static::$dimensions))
 		{
 			return $this->morphOne(Slug::class, 'slugable');
 		}
+		return null;
 	}
 	public function description()
 	{
-		if (in_array('title', static::$dimensions))
+		if (in_array('description', static::$dimensions))
 		{
 			return $this->morphOne(Description::class, 'descriptionable');
 		}
+		return null;
 	}
 	public function subtitle()
 	{
-		if (in_array('title', static::$dimensions))
+		if (in_array('subtitle', static::$dimensions))
 		{
 			return $this->morphOne(Subtitle::class, 'subtitleable');
 		}
+		return null;
 	}
 	public function thumbnail()
 	{
-		if (in_array('title', static::$dimensions))
+		if (in_array('thumbnail', static::$dimensions))
 		{
 			return $this->morphOne(Thumbnail::class, 'thumbnailable');
 		}
+		return null;
 	}
 	public function timestamp()
 	{
-		if (in_array('title', static::$dimensions))
+		if (in_array('timestamp', static::$dimensions))
 		{
 			return $this->morphOne(Timestamp::class, 'timestampable');
 		}
+		return null;
 	}
 	/// fix the thing with how to find bundles without issue and sections functions rather something like: getBundle('type'), getBundle('type') alternatively run this in the construction!
 	public function bundles()
