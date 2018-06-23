@@ -123,7 +123,6 @@ class IBAServiceProvider extends Provider
         {
 	        $this->registerResponseMacro();
         }
-		$this->app->singleton('Illuminate\Contracts\Debug\ExceptionHandler','LILPLP\IBA\Exceptions\Handler');
 	}
 	
 	public function registerRouteMacro()
