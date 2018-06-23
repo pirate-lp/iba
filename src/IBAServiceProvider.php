@@ -28,7 +28,7 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
-		$this->app->register('LILPLP\ILeaf\ILeafServiceProvider');
+		$this->app->register('LILPLP\ILeaf\ILeafServiceProvider');
 
 		$this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 		
@@ -115,6 +115,7 @@ class IBAServiceProvider extends Provider
 	 */
 	public function register()
 	{
+		
 		if (!Router::hasMacro('iba')) {
             $this->registerRouteMacro();
         }
