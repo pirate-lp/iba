@@ -20,6 +20,8 @@ use LILPLP\IBA\Dimensions;
 use LILPLP\IBA\Groupings;
 use LILPLP\IBA\Title;
 use LILPLP\IBA\Subtitle;
+use LILPLP\IBA\Timestamp;
+use LILPLP\IBA\Thumbnail;
 
 abstract class Book extends Model {
 	
@@ -75,8 +77,10 @@ abstract class Book extends Model {
 	{
 		if (in_array('timestamp', static::$dimensions))
 		{
+			
 			return $this->morphOne(Timestamp::class, 'timestampable');
 		}
+		
 		return null;
 	}
 	/// fix the thing with how to find bundles without issue and sections functions rather something like: getBundle('type'), getBundle('type') alternatively run this in the construction!
