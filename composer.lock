@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "190a6cf2bca84144de36e251b96d9e4a",
+    "content-hash": "30f8a316c71c6abca5921f559f9f4c44",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -278,50 +278,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "lil-plp/ileaf",
-            "version": "9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "/Users/home/Backend/iba/lil-plp/ileaf",
-                "reference": "3f52eb56a625dce7630c867f07c73444573aa917",
-                "shasum": null
-            },
-            "require": {
-                "erusev/parsedown-extra": "^0.7.1",
-                "michelf/php-markdown": "^1.8",
-                "symfony/yaml": "^3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LILPLP\\ILeaf\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Scrappy Nobody",
-                    "homepage": "http://lostideaslab.com/people/staff-co/scrappy-nobody/",
-                    "email": "info@lostideaslab.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Flat file CMS for Laravel",
-            "homepage": "http://iba.piratelp.com/",
-            "keywords": [
-                "CMS",
-                "Content Management System",
-                "Database CMS",
-                "Hybrid CMS",
-                "Laravel CMS",
-                "MIT Laravel CMS",
-                "Open Source CMS",
-                "flat-file CMS"
-            ]
-        },
-        {
             "name": "michelf/php-markdown",
             "version": "1.8.0",
             "source": {
@@ -366,6 +322,50 @@
                 "markdown"
             ],
             "time": "2018-01-15T00:49:33+00:00"
+        },
+        {
+            "name": "piratelp/ileaf",
+            "version": "0.9.5",
+            "source": {
+                "type": "git",
+                "url": "https://lostideaslab.org/iba/ileaf.git",
+                "reference": "b674cd29655a6eb9a9c6625d787ae1991ff2385d"
+            },
+            "require": {
+                "erusev/parsedown-extra": "^0.7.1",
+                "michelf/php-markdown": "^1.8",
+                "symfony/yaml": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LILPLP\\ILeaf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scrappy Nobody",
+                    "email": "developer@lostideaslab.com",
+                    "homepage": "https://lostideaslab.com/people/staff-co/scrappy-nobody/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Flat file content management system package for Laravel",
+            "homepage": "https://iba.piratelp.com/components/ileaf/",
+            "keywords": [
+                "Content management system",
+                "Flatfile Laravel CMS",
+                "Laravel CMS",
+                "Open Source CMS",
+                "Open Source Laravel CMS",
+                "cms",
+                "flatfile cms"
+            ],
+            "time": "2018-08-07T14:00:37+00:00"
         },
         {
             "name": "psr/http-message",
@@ -419,25 +419,28 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.8.0",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -470,20 +473,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-04-30T19:57:29+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.11",
+            "version": "v3.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0"
+                "reference": "810af2d35fc72b6cf5c01116806d2b65ccaaf2e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
-                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/810af2d35fc72b6cf5c01116806d2b65ccaaf2e2",
+                "reference": "810af2d35fc72b6cf5c01116806d2b65ccaaf2e2",
                 "shasum": ""
             },
             "require": {
@@ -529,15 +532,13 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-03T23:18:14+00:00"
+            "time": "2018-07-26T11:19:56+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lil-plp/ileaf": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
