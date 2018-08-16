@@ -1,10 +1,10 @@
 <?php
 
-namespace LILPLP\IBA\Http\Controllers;
+namespace PirateLP\IBA\Http\Controllers;
 
 use Illuminate\Http\Request;
-use LILPLP\IBA\People as People;
-use LILPLP\IBA\Name as Name;
+use PirateLP\IBA\People as People;
+use PirateLP\IBA\Name as Name;
 
 use App\Http\Controllers\Controller as Controller;
 

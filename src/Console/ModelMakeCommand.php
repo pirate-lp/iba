@@ -1,5 +1,5 @@
 <?php
-namespace LILPLP\IBA\Console;
+namespace PirateLP\IBA\Console;
 
 use Illuminate\Foundation\Console\ModelMakeCommand as BaseCommand;
 

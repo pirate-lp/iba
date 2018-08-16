@@ -1,9 +1,9 @@
 <?php
 
-namespace LILPLP\IBA;
+namespace PirateLP\IBA;
 
 use Illuminate\Database\Eloquent\Model;
-use LILPLP\IBA\People;
+use PirateLP\IBA\People;
 
 class Name extends Model
 {

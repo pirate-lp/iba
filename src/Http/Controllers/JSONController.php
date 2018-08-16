@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
-use LILPLP\IBA\Keyword;
+use PirateLP\IBA\Keyword;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller

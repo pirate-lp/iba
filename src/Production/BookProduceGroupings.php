@@ -1,11 +1,11 @@
 <?php
 	
-namespace LILPLP\IBA\Production;
+namespace PirateLP\IBA\Production;
 
 use Illuminate\Database\Eloquent\Model;
-use LILPLP\IBA\Keyword;
-use LILPLP\IBA\People;
-use LILPLP\IBA\Name;
+use PirateLP\IBA\Keyword;
+use PirateLP\IBA\People;
+use PirateLP\IBA\Name;
 use App;
 
 use Illuminate\Support\Collection;

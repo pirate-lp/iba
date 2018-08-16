@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
+Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
 	
 	Route::get('/analog/', 'AnalogController@index');
 	
@@ -16,11 +16,11 @@ Route::prefix('/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(['we
 
 
 
-Route::prefix('/iba/api')->namespace('LILPLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
+Route::prefix('/iba/api')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
 	
 });
 
-Route::prefix('/api/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
+Route::prefix('/api/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
 	
 	Route::prefix('/bundle')->group(function() {
 		Route::get('/', 'BundleController@manage');
@@ -32,7 +32,7 @@ Route::prefix('/api/iba')->namespace('LILPLP\IBA\Http\Controllers')->middleware(
 });
 
 
-Route::namespace('LILPLP\IBA\Http\Controllers')->group( function() {
+Route::namespace('PirateLP\IBA\Http\Controllers')->group( function() {
 	
 	Route::get('/iba/digital/', 'ApiController@start');
 	
@@ -55,7 +55,7 @@ Route::namespace('LILPLP\IBA\Http\Controllers')->group( function() {
 		
 		Route::middleware('auth:api')->group(function () {
 			
-			Route::get('/backend/', 'LILPLP\IBA\Http\Controllers\ApiController@index')->name('backend.index');
+			Route::get('/backend/', 'PirateLP\IBA\Http\Controllers\ApiController@index')->name('backend.index');
 			
 		});
 	});

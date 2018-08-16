@@ -1,6 +1,6 @@
 <?php
 
-namespace LILPLP\IBA;
+namespace PirateLP\IBA;
 
 use Illuminate\Support\Facades\View as View;
 use Illuminate\Support\Facades\Response as Response;
@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider as Provider;
 use Illuminate\Support\Facades\Route;
 
-use LILPLP\IBA\Console\ModelMakeCommand as ModelMakeCommand;
-use LILPLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
-use LILPLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
-use LILPLP\IBA\Console\BookMakeCommand;
-use LILPLP\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
+use PirateLP\IBA\Console\ModelMakeCommand as ModelMakeCommand;
+use PirateLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
+use PirateLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
+use PirateLP\IBA\Console\BookMakeCommand;
+use PirateLP\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
 
 use Illuminate\Routing\Router;
 
@@ -28,8 +28,6 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
-		$this->app->register('LILPLP\ILeaf\ILeafServiceProvider');
-
 		$this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 		
 		$this->publishes([
@@ -115,6 +113,7 @@ class IBAServiceProvider extends Provider
 	 */
 	public function register()
 	{
+		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
 		
 		if (!Router::hasMacro('iba')) {
             $this->registerRouteMacro();

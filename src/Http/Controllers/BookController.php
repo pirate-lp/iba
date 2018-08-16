@@ -1,6 +1,6 @@
 <?php
 
-namespace LILPLP\IBA\Http\Controllers;
+namespace PirateLP\IBA\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 use App;
 
-use LILPLP\IBA\AbstractBook;
-use LILPLP\IBA\Bundle as Bundle;
+use PirateLP\IBA\AbstractBook;
+use PirateLP\IBA\Bundle as Bundle;
 
 class BookController extends Controller
 {
@@ -28,7 +28,7 @@ class BookController extends Controller
 	    $this->class = 'App\\' . studly_case($this->type);
 	    if ($this->type == "bundle")
 	    {
-		    $this->class = "LILPLP\\IBA\\Bundle";
+		    $this->class = "PirateLP\\IBA\\Bundle";
 	    }
 */
     }

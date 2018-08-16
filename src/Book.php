@@ -1,6 +1,6 @@
 <?php
 
-Namespace LILPLP\IBA;
+Namespace PirateLP\IBA;
 
 use Illuminate\Database\Eloquent\Model as Model;
 
@@ -15,13 +15,13 @@ use Michelf\MarkdownExtra as MarkdownExtra;
 // use Erusev\Parsedown as Parsedown;
 use ParsedownExtra as ParsedownExtra;
 
-use LILPLP\IBA\Production\BookProduction;
-use LILPLP\IBA\Dimensions;
-use LILPLP\IBA\Groupings;
-use LILPLP\IBA\Title;
-use LILPLP\IBA\Subtitle;
-use LILPLP\IBA\Timestamp;
-use LILPLP\IBA\Thumbnail;
+use PirateLP\IBA\Production\BookProduction;
+use PirateLP\IBA\Dimensions;
+use PirateLP\IBA\Groupings;
+use PirateLP\IBA\Title;
+use PirateLP\IBA\Subtitle;
+use PirateLP\IBA\Timestamp;
+use PirateLP\IBA\Thumbnail;
 
 abstract class Book extends Model {
 	

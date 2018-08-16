@@ -1,9 +1,9 @@
 <?php
 
-namespace LILPLP\IBA\Http\Controllers;
+namespace PirateLP\IBA\Http\Controllers;
 
-use LILPLP\IBA\People;
-use LILPLP\IBA\Keyword;
+use PirateLP\IBA\People;
+use PirateLP\IBA\Keyword;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

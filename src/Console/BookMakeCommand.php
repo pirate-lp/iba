@@ -1,6 +1,6 @@
 <?php
 
-namespace LILPLP\IBA\Console;
+namespace PirateLP\IBA\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;

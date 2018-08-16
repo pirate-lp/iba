@@ -1,11 +1,11 @@
 <?php
 
-Namespace LILPLP\IBA\Console;
+Namespace PirateLP\IBA\Console;
 
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand as Base;
 
 use Illuminate\Support\Composer;
-use LILPLP\IBA\Console\MigrationCreator;
+use PirateLP\IBA\Console\MigrationCreator;
 
 class MigrateMakeCommand extends Base
 {

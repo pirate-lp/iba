@@ -1,12 +1,12 @@
 <?php
 	
-namespace LILPLP\IBA\Production;
+namespace PirateLP\IBA\Production;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-use LILPLP\IBA;
-use LILPLP\IBA\Timestamp;
+use PirateLP\IBA;
+use PirateLP\IBA\Timestamp;
 
 trait BookProduceDimensions {
 	

@@ -1,14 +1,14 @@
 <?php
 
-namespace LILPLP\IBA\Http\Controllers;
+namespace PirateLP\IBA\Http\Controllers;
 
 use Illuminate\Http\Request;
-use LILPLP\IBA\Http\Controllers\BookController;
+use PirateLP\IBA\Http\Controllers\BookController;
 
 use Illuminate\Support\Facades\Route;
 
-use LILPLP\IBA\Bundle;
-use LILPLP\IBA\AbstractBook;
+use PirateLP\IBA\Bundle;
+use PirateLP\IBA\AbstractBook;
 
 class BundleController extends BookController
 {

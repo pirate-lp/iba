@@ -1,12 +1,12 @@
 <?php
 
-namespace LILPLP\IBA\Http\Controllers;
+namespace PirateLP\IBA\Http\Controllers;
 
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Http\Request;
 
-use LILPLP\IBA\Keyword;
-use LILPLP\IBA\People;
+use PirateLP\IBA\Keyword;
+use PirateLP\IBA\People;
 
 class ApiController extends Controller
 {
