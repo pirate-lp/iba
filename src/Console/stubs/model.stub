@@ -9,5 +9,5 @@ class DummyClass extends Book
 	//
 	public static $dimensions = ['title', 'subtitle', 'slug', 'description', 'thumbnail', 'timestamp'];
 	public static $groupings = ['keywords', 'people', 'bundles'];
-	public static $storageName = "DummyModelVariable";
+	public static $storageName = 'DummyModelVariable';
 }
