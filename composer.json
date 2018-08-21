@@ -5,7 +5,7 @@
     "keywords": ["flat-file CMS", "Content Management System", "CMS", "Database CMS", "Laravel CMS", "Open Source CMS", "MIT Laravel CMS", "Hybrid CMS"],
     "homepage": "https://iba.piratelp.com/",
     "license": "MIT",
-    "authors": [
+	"authors": [
         {
             "name": "Scrappy Nobody",
             "homepage": "https://ideasgalaxies.com/people/team/scrappy-nobody/",
@@ -18,6 +18,16 @@
             "PirateLP\\IBA\\": "src/"
         }
     },
+    "repositories": [
+		{
+			"type": "path",
+			"url": "/Users/home/InteractiveBooksAtelier/piratelp/iba"
+	    },
+	    {
+			"type": "path",
+			"url": "/Users/home/InteractiveBooksAtelier/piratelp/ileaf"
+	    }
+	],
     "require": {
         "guzzlehttp/guzzle": "^6.2",
         "symfony/yaml": "^3.2",
