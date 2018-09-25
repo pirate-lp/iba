@@ -44,8 +44,10 @@ trait BookProduceGroupings {
 				{{}
 					foreach ( $people as $person )
 					{
-						if (!isset($person['id']) || !is_numeric($person['id']) )
+						if ( isset($person['id']) && is_numeric($person['id']) && People::find($person['id']) )
 						{
+							$person = People::find($person['id']);
+						} else {
 							$key = Name::where('identifier', $person['name'] )->first();
 							if ( !is_null($key) )
 						    {
@@ -59,9 +61,6 @@ trait BookProduceGroupings {
 								$person = $newPerson;
 						    }
 						}
-						else {
-							$person = People::find($person['id']);
-						}
 						$this->people()->attach($person->id, ['role' => $role]);
 					}
 				}
@@ -73,6 +72,7 @@ trait BookProduceGroupings {
 	
 	public function storeBundles($values)
 	{
+		echo( gettype($values['bundles']) );
 		foreach ( $values['bundles'] as $bundle )
 		{
 			$bundle = $this->convert($bundle);
@@ -113,8 +113,10 @@ trait BookProduceGroupings {
 		$keywords = $this->convert($keywords);
 		foreach ($keywords as $keyword)
 		{
-			if (!isset($keyword['id']) || !is_numeric($keyword['id']))
+			if (isset($keyword['id']) && is_numeric($keyword['id']) && Keyword::find($keyword['id']) )
 			{
+				$keyword = Keyword::find($keyword['id']);
+			} else {
 				$newkeyword = new Keyword;
 				$key = $newkeyword->where('word', $keyword['word'])->first();
 				if ( !is_null($key) )
@@ -127,9 +129,6 @@ trait BookProduceGroupings {
 				    $newkeyword->save();
 				    $keyword = $newkeyword;
 			    }
-			}
-			else {
-				$keyword = Keyword::find($keyword['id']);
 			}
 			$newsKeywords[] = $keyword->id;
 		}
