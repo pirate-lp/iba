@@ -50,7 +50,7 @@ trait BookProduceDimensions {
 	
 	public function storeThumbnail($values)
 	{	
-		if ( implode('',$values['thumbnail']) != '' )
+		if ( !empty($values['thumbnail']) )
 		{
 			$thumbnail['path'] = ( !empty($values['thumbnail']['path']) ) ? $values['thumbnail']['path'] : null;
 			$thumbnail['name'] = ( !empty($values['thumbnail']['name']) ) ? $values['thumbnail']['name'] : null;
