@@ -16,8 +16,9 @@ trait BookProduceDimensions {
 		{
 			$method = 'store' . studly_case($dimension);
 // 			if (array_key_exists($dimension, $values))
-			if (!empty($values[$dimension]))
+			if ( !empty($values[$dimension]) || (isset($values[$dimension]) && $values[$dimension] === "0") )
 			{
+				echo "we are doing " . $dimension. "\n";
 				$this->$method($values);
 			}
 		}
