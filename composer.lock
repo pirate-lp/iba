@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "30f8a316c71c6abca5921f559f9f4c44",
+    "content-hash": "1453c1a9f8c73977b218ed7b4d5e3278",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -325,47 +325,46 @@
         },
         {
             "name": "piratelp/ileaf",
-            "version": "0.9.5",
-            "source": {
-                "type": "git",
-                "url": "https://lostideaslab.org/iba/ileaf.git",
-                "reference": "b674cd29655a6eb9a9c6625d787ae1991ff2385d"
+            "version": "9999999-dev",
+            "dist": {
+                "type": "path",
+                "url": "/Users/home/InteractiveBooksAtelier/piratelp/ileaf",
+                "reference": "d6d7f452d7727dcb7324eeabaa49cb754564f324",
+                "shasum": null
             },
             "require": {
                 "erusev/parsedown-extra": "^0.7.1",
                 "michelf/php-markdown": "^1.8",
                 "symfony/yaml": "^3.2"
             },
-            "type": "library",
+            "type": "cms",
             "autoload": {
                 "psr-4": {
-                    "LILPLP\\ILeaf\\": "src/"
+                    "PirateLP\\ILeaf\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Scrappy Nobody",
-                    "email": "developer@lostideaslab.com",
-                    "homepage": "https://lostideaslab.com/people/staff-co/scrappy-nobody/",
+                    "homepage": "https://ideasgalaxies.com/people/team/scrappy-nobody/",
+                    "email": "piratelp@ideasgalaxies.com",
                     "role": "Developer"
                 }
             ],
             "description": "Flat file content management system package for Laravel",
             "homepage": "https://iba.piratelp.com/components/ileaf/",
             "keywords": [
-                "Content management system",
+                "CMS",
+                "Content Management System",
+                "Flatfile CMS",
                 "Flatfile Laravel CMS",
                 "Laravel CMS",
                 "Open Source CMS",
-                "Open Source Laravel CMS",
-                "cms",
-                "flatfile cms"
-            ],
-            "time": "2018-08-07T14:00:37+00:00"
+                "Open Source Laravel CMS"
+            ]
         },
         {
             "name": "psr/http-message",
@@ -538,7 +537,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "piratelp/ileaf": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

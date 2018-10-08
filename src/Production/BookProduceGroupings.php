@@ -4,6 +4,7 @@ namespace PirateLP\IBA\Production;
 
 use Illuminate\Database\Eloquent\Model;
 use PirateLP\IBA\Keyword;
+use PirateLP\IBA\Role;
 use PirateLP\IBA\People;
 use PirateLP\IBA\Name;
 use App;
@@ -279,7 +280,7 @@ trait BookProduceGroupings {
 			
 				if(!in_array($ER, $newRelationships))
 				{
-					$relation = App\Role::find($ER);
+					$relation = Role::find($ER);
 					$relation->delete();
 				}
 			

@@ -3,6 +3,7 @@
 namespace PirateLP\IBA;
 
 use Illuminate\Database\Eloquent\Model;
+use PirateLP\IBA\People;
 
 class Role extends Model
 {
