@@ -72,10 +72,10 @@ class BookController extends Controller
     {
 	    $book = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
 	    
+	    $bundles = null;
 	    foreach ( $this->bundleTypes as $bundle )
 	    {
 		    $bundles[$bundle] = Bundle::with($this->class::$dimensions)->where('type', $bundle)->get();
-// 			$bundles[$bundle] = App\Bundle::where('type', $bundle)->get();
 	    }
 	    $roles = $this->roles;
 	    $type = $this->type;
