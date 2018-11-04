@@ -140,7 +140,7 @@ class BookController extends Controller
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::edit', compact('article', 'bundles', 'book', 'type', 'roles'));
+			return view('iba::edit', compact('bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));
