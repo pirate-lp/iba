@@ -30,7 +30,7 @@ class IBAServiceProvider extends Provider
 	{
 		
 		$this->publishes([
-        	__DIR__.'/config/iba.php' => config_path('ibooksatelier.php'),
+        	__DIR__.'/config/iba.php' => config_path('iba.php'),
 		]);
     
 		require __DIR__.'/routes/web.php';
