@@ -1,3 +1,3 @@
 # Interactive Books' Atelier
 
-Please visit http://iba.piratelp.com/ for info on using **Interactive Books' Atelier** ...
+For more information, documentation, installation guide, tips & tricks, visit [our website](http://iba.piratelp.xyz/)
