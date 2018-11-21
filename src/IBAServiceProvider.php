@@ -28,10 +28,9 @@ class IBAServiceProvider extends Provider
 	 */
 	public function boot()
 	{
-		$this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 		
 		$this->publishes([
-        	__DIR__.'/config/iba.php' => config_path('iba.php'),
+        	__DIR__.'/config/iba.php' => config_path('ibooksatelier.php'),
 		]);
     
 		require __DIR__.'/routes/web.php';
@@ -39,7 +38,7 @@ class IBAServiceProvider extends Provider
 		$this->loadViewsFrom(__DIR__.'/resources/views', 'iba');
 		
 		$this->publishes([
-				__DIR__.'/public' => public_path('lil-plp/iba'),
+				__DIR__.'/public' => public_path('piratelp/iba'),
 			], 'public');
 		
 		$this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -53,8 +52,6 @@ class IBAServiceProvider extends Provider
 	        ]);
 	    }
 		
-		
-		
 		Response::macro('backend', function ($book)
 		{
 			if ( in_array('web', Route::current()->computedMiddleware) )
@@ -66,12 +63,6 @@ class IBAServiceProvider extends Provider
 				return response()->json($book);
 			}
 		});
-			
-		
-		
-		
-		
-		
 		
 		View::composer('iba::modules.create', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
@@ -113,7 +104,9 @@ class IBAServiceProvider extends Provider
 	 */
 	public function register()
 	{
-		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
+		
+		
+// 		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
 		
 		if (!Router::hasMacro('iba')) {
             $this->registerRouteMacro();
