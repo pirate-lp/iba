@@ -1,4 +1,4 @@
-@if ( isset($thumbnail))
+@if ( isset($thumbnail) || in_array('thumbnail', $book->dimensions) )
 	<div>
 		<label class="c-card__item c-card__item--divider" for="accordion-2">Thumbnail</label>
 				
