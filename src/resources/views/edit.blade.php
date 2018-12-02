@@ -21,12 +21,12 @@
 			{{ method_field('PUT') }}
 			{{ csrf_field() }}
 		
-			
-		
-			@include('iba::modules.form.edit')
 			<div class="form-actions">
 				<button type="submit" class="btn btn-default">Update</button>
 			</div>
+		
+			@include('iba::modules.form.edit')
+			
 		</form>
 	</div>
 @endsection

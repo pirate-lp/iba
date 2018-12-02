@@ -14,10 +14,12 @@
 		
 			{{ csrf_field() }}
 			
-			@include('iba::modules.form.create')
 			<div class="form-actions">
 				<button type="submit" class="btn btn-default">Create</button>
 			</div>
+			
+			@include('iba::modules.form.create')
+			
 		</form>
 		
 	</div>
