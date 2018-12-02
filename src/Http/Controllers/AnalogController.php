@@ -27,8 +27,9 @@ class AnalogController extends Controller
 		foreach ($this->books as $key => $book)
 		{
 			$request = Request::create('iba/analog/' . $book . '/dashboard/', 'GET');
-			$response = Route::dispatch($request);
+			$response = app()->handle($request);
 			$books[$key] = json_decode($response->content());
+			
 		}
 		return view('iba::index', compact('books'));
 	}

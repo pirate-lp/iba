@@ -4,28 +4,28 @@
 	<div class="os-form-group">
 		@if (in_array('title', $book->dimensions))
 			<label class="label">Title: </label>
-			<input class="form-control" name="title" type="text" class="pure-input-1 form-control" placeholder="Title" value="{{ $book->title->value or ''}}">
+			<input class="form-control" name="title" type="text" class="pure-input-1 form-control" placeholder="Title" value="{{ $book->title->value ?? ''}}">
 		@endif
 	</div>
 			
 	<div class="os-form-group">
 		@if (in_array('subtitle', $book->dimensions))
 			<label class="label">Subtitle: </label>
-			<input class="form-control" name="subtitle" type="text" class="pure-input-1 form-control" placeholder="Subtitle" value="{{ $book->subtitle->value or ''}}">
+			<input class="form-control" name="subtitle" type="text" class="pure-input-1 form-control" placeholder="Subtitle" value="{{ $book->subtitle->value ?? ''}}">
 		@endif
 	</div>
 			
 	<div class="os-form-group">
 		@if (in_array('slug', $book->dimensions))
 			<label class="label">Slug</label>
-			<input class="form-control" name="slug" type="text" class="pure-input-1 form-control" placeholder="Slug" value="{{ $book->slug->value or ''}}">
+			<input class="form-control" name="slug" type="text" class="pure-input-1 form-control" placeholder="Slug" value="{{ $book->slug->value ?? ''}}">
 		@endif
 	</div>
 			
 	<div class="os-form-group">
 		@if (in_array('description', $book->dimensions))
 			<label class="label">Description: </label>
-			<textarea name="description" class="pure-input-1 form-control" type="text" placeholder="Description">{{ $book->description->value or '' }}</textarea>
+			<textarea name="description" class="pure-input-1 form-control" type="text" placeholder="Description">{{ $book->description->value ?? '' }}</textarea>
 		@endif
 	</div>
 	</div>

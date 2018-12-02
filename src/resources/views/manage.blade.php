@@ -25,7 +25,7 @@
 	        <tr>
 	            <td>{{ $item->id }}</td>
 	            <td><a href="/iba/analog/{{ $type }}/{{ $item->id }}/edit/">{{ $item->title->value }}</a></td>
-	            <td>{{ $item->timestamp->publish or '' }}</td>
+	            <td>{{ $item->timestamp->publish ?? '' }}</td>
 	        </tr>
 	        @endforeach
 	    </tbody>
