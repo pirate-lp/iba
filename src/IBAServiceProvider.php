@@ -104,9 +104,8 @@ class IBAServiceProvider extends Provider
 	 */
 	public function register()
 	{
-		
-		
-// 		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
+				
+		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
 		
 		if (!Router::hasMacro('iba')) {
             $this->registerRouteMacro();
