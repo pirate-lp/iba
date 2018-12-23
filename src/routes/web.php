@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
+Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth', 'editor'])->group( function() {
 	
 	Route::get('/analog/', 'AnalogController@index');
 	
