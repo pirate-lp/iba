@@ -1,6 +1,8 @@
 <?php
 
-Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth', 'editor'])->group( function() {
+use PirateLP\IBA\Http\Middleware\CheckEditor as Editor;
+
+Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth', Editor::class])->group( function() {
 	
 	Route::get('/analog/', 'AnalogController@index');
 	
