@@ -27,6 +27,7 @@ abstract class Book extends Model {
 	
 	use BookProduction;
 	
+	protected $disk = 'ibook';
 	protected $fillable = ['loc'];
 	
 	public static $dimensions = [];
@@ -118,10 +119,10 @@ abstract class Book extends Model {
 	public function content()
 	{
 		$uri = static::$storageName . '/' . $this->loc . '/main.md';
-		if ( !Storage::disk('ibook')->exists($uri) ) {
+		if ( !Storage::disk($this->disk)->exists($uri) ) {
 			return null;
 		}
-		$content = Storage::disk('ibook')->get($uri);
+		$content = Storage::disk($this->disk)->get($uri);
 
 		$extra = new MarkdownExtra;
 		$HTMLContent = $extra->transform($content);
@@ -137,10 +138,10 @@ abstract class Book extends Model {
 	public function getContentRawAttribute()
 	{
 		$uri = static::$storageName . '/' . $this->loc . '/main.md';
-		if ( !Storage::disk('ibook')->exists($uri) ) {
+		if ( !Storage::disk($this->disk)->exists($uri) ) {
 			return null;
 		}
-		return Storage::disk('ibook')->get($uri);
+		return Storage::disk($this->disk)->get($uri);
 	}
 	
 /*  💛❤️ Further development!
