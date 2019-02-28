@@ -46,9 +46,9 @@ Dashboard
 			<div class="c-card__item c-card__item--divider">Information</div>
 			<div class="c-card__item">
 				<p class="c-paragraph">You are running</p>
-				<p class="c-paragraph">Interactive Books' Atelier, version: 0.8.x</p>
+				<p class="c-paragraph">iAtelier, version: 0.8.x</p>
 				<p class="c-paragraph">Design & developed by Hossein from scratch at Pirate's Lost Pearl ...</p>
-				<p class="c-paragraph">Thanks for choosing Interactive Books' Atelier</p>
+				<p class="c-paragraph">Thanks for choosing iAtelier</p>
 			</div>
 		</div>
 	</div>
