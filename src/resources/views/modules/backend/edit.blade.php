@@ -1,4 +1,4 @@
-@extends('iba::backend.base')
+@extends('atelier::backend.base')
 
 @section('main')
 

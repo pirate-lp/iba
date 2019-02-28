@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use PirateLP\IBA\Book as Book;
+use IAtelier\Atelier\Book as Book;
 
 class DummyClass extends Book
 {

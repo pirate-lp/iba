@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use PirateLP\IBA\Http\Controllers\BookController;
+use IAtelier\Atelier\Http\Controllers\BookController;
 use Illuminate\Http\Request as Request;
 
 use App\DummyModelClass;

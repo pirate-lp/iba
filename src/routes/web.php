@@ -1,8 +1,8 @@
 <?php
 
-use PirateLP\IBA\Http\Middleware\CheckEditor as Editor;
+use IAtelier\Atelier\Http\Middleware\CheckEditor as Editor;
 
-Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth', Editor::class])->group( function() {
+Route::prefix('/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth', Editor::class])->group( function() {
 	
 	Route::get('/analog/', 'AnalogController@index');
 	
@@ -18,11 +18,11 @@ Route::prefix('/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['
 
 
 
-Route::prefix('/iba/api')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
+Route::prefix('/atelier/api')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
 	
 });
 
-Route::prefix('/api/iba')->namespace('PirateLP\IBA\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
+Route::prefix('/api/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
 	
 	Route::prefix('/bundle')->group(function() {
 		Route::get('/', 'BundleController@manage');
@@ -34,13 +34,13 @@ Route::prefix('/api/iba')->namespace('PirateLP\IBA\Http\Controllers')->middlewar
 });
 
 
-Route::namespace('PirateLP\IBA\Http\Controllers')->group( function() {
+Route::namespace('IAtelier\Atelier\Http\Controllers')->group( function() {
 	
-	Route::get('/iba/digital/', 'ApiController@start');
+	Route::get('/atelier/digital/', 'ApiController@start');
 	
-	Route::get('/iba/', 'ApiController@apiIndex');
+	Route::get('/atelier/', 'ApiController@apiIndex');
 	
-	Route::get('/iba/bundle/create', function(){
+	Route::get('/atelier/bundle/create', function(){
 					return "Hi";
 				})->middleware('auth');
 	
@@ -57,7 +57,7 @@ Route::namespace('PirateLP\IBA\Http\Controllers')->group( function() {
 		
 		Route::middleware('auth:api')->group(function () {
 			
-			Route::get('/backend/', 'PirateLP\IBA\Http\Controllers\ApiController@index')->name('backend.index');
+			Route::get('/backend/', 'IAtelier\Atelier\Http\Controllers\ApiController@index')->name('backend.index');
 			
 		});
 	});

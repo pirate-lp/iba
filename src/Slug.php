@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA;
+namespace IAtelier\Atelier;
 
 use Illuminate\Database\Eloquent\Model;
 

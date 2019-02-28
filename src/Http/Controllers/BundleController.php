@@ -1,14 +1,14 @@
 <?php
 
-namespace PirateLP\IBA\Http\Controllers;
+namespace IAtelier\Atelier\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PirateLP\IBA\Http\Controllers\BookController;
+use IAtelier\Atelier\Http\Controllers\BookController;
 
 use Illuminate\Support\Facades\Route;
 
-use PirateLP\IBA\Bundle;
-use PirateLP\IBA\AbstractBook;
+use IAtelier\Atelier\Bundle;
+use IAtelier\Atelier\AbstractBook;
 
 class BundleController extends BookController
 {
@@ -32,7 +32,7 @@ class BundleController extends BookController
 	    $type = $this->type;
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::bundle.create', compact('book', 'bundles', 'type', 'roles'));
+			return view('atelier::bundle.create', compact('book', 'bundles', 'type', 'roles'));
 		} else {
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
@@ -59,7 +59,7 @@ class BundleController extends BookController
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('iba::bundle.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
+			return view('atelier::bundle.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));

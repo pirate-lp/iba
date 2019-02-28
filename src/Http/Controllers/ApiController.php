@@ -1,12 +1,12 @@
 <?php
 
-namespace PirateLP\IBA\Http\Controllers;
+namespace IAtelier\Atelier\Http\Controllers;
 
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Http\Request;
 
-use PirateLP\IBA\Keyword;
-use PirateLP\IBA\People;
+use IAtelier\Atelier\Keyword;
+use IAtelier\Atelier\People;
 
 class ApiController extends Controller
 {
@@ -14,7 +14,7 @@ class ApiController extends Controller
     public $bookTypes;
     
     public function __construct() {
-	    $this->bookTypes = config('iba.book_types');
+	    $this->bookTypes = config('atelier.book_types');
     }
     
     public function keywords()
@@ -29,7 +29,7 @@ class ApiController extends Controller
     
     public function start()
     {
-	    return view('iba::digital.index');
+	    return view('atelier::digital.index');
     }
     
     public function apiIndex()

@@ -1,9 +1,9 @@
 <?php
 
-namespace PirateLP\IBA;
+namespace IAtelier\Atelier;
 
 use Illuminate\Database\Eloquent\Model;
-use PirateLP\IBA\People;
+use IAtelier\Atelier\People;
 
 class Role extends Model
 {

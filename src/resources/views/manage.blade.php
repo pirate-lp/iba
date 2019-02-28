@@ -1,4 +1,4 @@
-@extends('iba::window.master')
+@extends('atelier::window.master')
 
 @push('title')
 {{ title_case($type) }}<!-- | manage-->
@@ -24,7 +24,7 @@
 		    @foreach ( $items as $item )
 	        <tr>
 	            <td>{{ $item->id }}</td>
-	            <td><a href="/iba/analog/{{ $type }}/{{ $item->id }}/edit/">{{ $item->title->value }}</a></td>
+	            <td><a href="/atelier/analog/{{ $type }}/{{ $item->id }}/edit/">{{ $item->title->value }}</a></td>
 	            <td>{{ $item->timestamp->publish ?? '' }}</td>
 	        </tr>
 	        @endforeach

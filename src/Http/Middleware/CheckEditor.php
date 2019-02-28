@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA\Http\Middleware;
+namespace IAtelier\Atelier\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

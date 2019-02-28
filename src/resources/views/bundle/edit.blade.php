@@ -1,8 +1,8 @@
-@extends('iba::bundle.base')
+@extends('atelier::bundle.base')
 
 @section('form')
 
-	<form class="pure-form pure-form-stacked" action="/iba/analog/bundle/{{ $book->id }}/" method="post">
+	<form class="pure-form pure-form-stacked" action="/atelier/analog/bundle/{{ $book->id }}/" method="post">
 		{{ method_field('PUT') }}
 		{{ csrf_field() }}
 		<h2>Editing Bundle</h2>

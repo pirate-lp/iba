@@ -428,8 +428,8 @@
 
 @font-face {
   font-family: "photon-entypo";
-  src: url("/lil-plp/iba/fonts/photon-entypo.eot");
-  src: url("/lil-plp/iba/fonts/photon-entypo.eot?#iefix") format("eot"), url("/lil-plp/iba/fonts/photon-entypo.woff") format("woff"), url("/lil-plp/iba/fonts/photon-entypo.ttf") format("truetype");
+  src: url("/lil-plp/atelier/fonts/photon-entypo.eot");
+  src: url("/lil-plp/atelier/fonts/photon-entypo.eot?#iefix") format("eot"), url("/lil-plp/atelier/fonts/photon-entypo.woff") format("woff"), url("/lil-plp/atelier/fonts/photon-entypo.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

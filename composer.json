@@ -1,15 +1,15 @@
 {
-    "name": "piratelp/iba",
-    "description": "Interactive Books' Atelier: the future of publishing content digital ...",
+    "name": "iatelier/atelier",
+    "description": "iAtelier: indipendent content management system for independent content creators",
     "type": "cms",
-    "keywords": ["flat-file CMS", "Content Management System", "CMS", "Database CMS", "Laravel CMS", "Open Source CMS", "MIT Laravel CMS", "Hybrid CMS"],
-    "homepage": "https://iba.piratelp.com/",
+    "keywords": ["Content Management System", "CMS", "Database CMS", "Laravel CMS", "Open Source CMS", "MIT Laravel CMS", "Hybrid CMS"],
+    "homepage": "https://iatelier.piratesatelier.xyz/",
     "license": "MIT",
 	"authors": [
         {
-            "name": "Scrappy Nobody",
-            "homepage": "https://ideasgalaxies.com/people/team/scrappy-nobody/",
-            "email": "piratelp@ideasgalaxies.com",
+            "name": "Captain Husayn Pinguin",
+            "homepage": "https://earthlinghusayn.xyz/",
+            "email": "captainhusaynpinguin@galacticvisions.xyz",
             "role": "Developer"
         }
     ],
@@ -21,11 +21,11 @@
     "repositories": [
 		{
 			"type": "path",
-			"url": "/Users/home/InteractiveBooksAtelier/piratelp/iba"
+			"url": "/Users/home/InteractiveBooksAtelier/iatelier/atelier"
 	    },
 	    {
 			"type": "path",
-			"url": "/Users/home/InteractiveBooksAtelier/piratelp/ileaf"
+			"url": "/Users/home/InteractiveBooksAtelier/iatelier/ileaf"
 	    }
 	],
     "require": {
@@ -34,6 +34,6 @@
         "michelf/php-markdown": "^1.8",
         "erusev/parsedown-extra": "^0.7.1",
         "laravel/framework": "5.7.*",
-        "piratelp/ileaf": "@dev"
+        "iatelier/ileaf": "@dev"
     }
 }

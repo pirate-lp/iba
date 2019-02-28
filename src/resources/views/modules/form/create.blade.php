@@ -1,23 +1,23 @@
-@include('iba::production.form.modules.main')
+@include('atelier::production.form.modules.main')
 		
 	<div class="grid-large panel-edit">
 	
 		<div class="form-box">
-			@include('iba::production.form.modules.thumbnail')
+			@include('atelier::production.form.modules.thumbnail')
 		</div>
 		
 		
 		<div class="form-box">
-			@include('iba::production.form.modules.people')
-		</div>
-			
-		
-		<div class="form-box">
-			@include('iba::production.form.modules.dates')
+			@include('atelier::production.form.modules.people')
 		</div>
 			
+		
 		<div class="form-box">
-			@include('iba::production.form.modules.keywords')
+			@include('atelier::production.form.modules.dates')
+		</div>
+			
+		<div class="form-box">
+			@include('atelier::production.form.modules.keywords')
 		</div>
 	
 		<div class="form-box">

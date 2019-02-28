@@ -1,4 +1,4 @@
-@extends('iba::desk.master')
+@extends('atelier::desk.master')
 
 @section('window')
 
@@ -23,7 +23,7 @@
 		
 		<div class="content">
 			<div class="sidebar">
-				@include('iba::window.menu', ['title' => ''])
+				@include('atelier::window.menu', ['title' => ''])
 			</div>
 			
 			<div class="panel">

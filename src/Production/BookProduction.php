@@ -1,6 +1,6 @@
 <?php
 	
-namespace PirateLP\IBA\Production;
+namespace IAtelier\Atelier\Production;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Yaml;
 use ParsedownExtra;
 
-use PirateLP\IBA;
+use IAtelier\Atelier;
 
 trait BookProduction {
 	

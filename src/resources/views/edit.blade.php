@@ -1,4 +1,4 @@
-@extends('iba::window.master')
+@extends('atelier::window.master')
 
 @push('title')
 	{{--- <span class="h2">Editing {{ title_case($type) }}</span> --}}
@@ -17,7 +17,7 @@
 			</div>
 		@endif
 	
-		<form class="iba-main-form pure-form pure-form-aligned" action="/iba/analog/{{ $type }}/{{ $book->id }}/" method="POST">
+		<form class="atelier-main-form pure-form pure-form-aligned" action="/atelier/analog/{{ $type }}/{{ $book->id }}/" method="POST">
 			{{ method_field('PUT') }}
 			{{ csrf_field() }}
 		
@@ -25,7 +25,7 @@
 				<button type="submit" class="btn btn-default">Update</button>
 			</div>
 		
-			@include('iba::modules.form.edit')
+			@include('atelier::modules.form.edit')
 			
 		</form>
 	</div>

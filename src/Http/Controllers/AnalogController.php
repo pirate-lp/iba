@@ -1,9 +1,9 @@
 <?php
 
-namespace PirateLP\IBA\Http\Controllers;
+namespace IAtelier\Atelier\Http\Controllers;
 
-use PirateLP\IBA\People;
-use PirateLP\IBA\Keyword;
+use IAtelier\Atelier\People;
+use IAtelier\Atelier\Keyword;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +18,7 @@ class AnalogController extends Controller
 	public $books;
 	
 	public function __construct() {
-		$this->books = config('iba.book_types');
+		$this->books = config('atelier.book_types');
 	}
 	
 	public function index()
@@ -26,12 +26,12 @@ class AnalogController extends Controller
 		$books = [];
 		foreach ($this->books as $key => $book)
 		{
-			$request = Request::create('iba/analog/' . $book . '/dashboard/', 'GET');
+			$request = Request::create('atelier/analog/' . $book . '/dashboard/', 'GET');
 			$response = app()->handle($request);
 			$books[$key] = json_decode($response->content());
 			
 		}
-		return view('iba::index', compact('books'));
+		return view('atelier::index', compact('books'));
 	}
 
 	public function keywords()

@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA\Console;
+namespace IAtelier\Atelier\Console;
 
 use Illuminate\Routing\Console\ControllerMakeCommand as Base;
 

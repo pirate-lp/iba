@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA\Console;
+namespace IAtelier\Atelier\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
@@ -41,7 +41,7 @@ class BookMakeCommand extends Command
             throw new InvalidArgumentException('Model name contains invalid characters.');
         }
         
-        if (in_array($type, config('iba')))
+        if (in_array($type, config('atelier')))
         {
 	        throw new InvalidArgumentException('A Book of this type already exist in IBA.');
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA;
+namespace IAtelier\Atelier;
 
 use Illuminate\Support\Facades\View as View;
 use Illuminate\Support\Facades\Response as Response;
@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider as Provider;
 use Illuminate\Support\Facades\Route;
 
-use PirateLP\IBA\Console\ModelMakeCommand as ModelMakeCommand;
-use PirateLP\IBA\Console\MigrateMakeCommand as MigrateMakeCommand;
-use PirateLP\IBA\Console\ControllerMakeCommand as ControllerMakeCommand;
-use PirateLP\IBA\Console\BookMakeCommand;
+use IAtelier\Atelier\Console\ModelMakeCommand as ModelMakeCommand;
+use IAtelier\Atelier\Console\MigrateMakeCommand as MigrateMakeCommand;
+use IAtelier\Atelier\Console\ControllerMakeCommand as ControllerMakeCommand;
+use IAtelier\Atelier\Console\BookMakeCommand;
 use PirateLP\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
 
 use Illuminate\Routing\Router;
@@ -30,15 +30,15 @@ class IBAServiceProvider extends Provider
 	{
 		
 		$this->publishes([
-        	__DIR__.'/config/iba.php' => config_path('iba.php'),
+        	__DIR__.'/config/atelier.php' => config_path('atelier.php'),
 		]);
     
 		require __DIR__.'/routes/web.php';
 		
-		$this->loadViewsFrom(__DIR__.'/resources/views', 'iba');
+		$this->loadViewsFrom(__DIR__.'/resources/views', 'atelier');
 		
 		$this->publishes([
-				__DIR__.'/public' => public_path('piratelp/iba'),
+				__DIR__.'/public' => public_path('iatelier/atelier'),
 			], 'public');
 		
 		$this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -64,31 +64,31 @@ class IBAServiceProvider extends Provider
 			}
 		});
 		
-		View::composer('iba::modules.create', function($view) {
+		View::composer('atelier::modules.create', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-        View::composer('iba::modules.create', function($view) {
+        View::composer('atelier::modules.create', function($view) {
 	        $view->with('peoples', People::select('id', 'name')->get());
         });
         
-        View::composer('iba::create', function($view) {
+        View::composer('atelier::create', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-        View::composer('iba::create', function($view) {
+        View::composer('atelier::create', function($view) {
 	        $view->with('peoples', People::select('id', 'name')->get());
         });
         
-        View::composer('iba::modules.edit', function($view) {
+        View::composer('atelier::modules.edit', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-        View::composer('iba::amalog.modules.edit', function($view) {
+        View::composer('atelier::amalog.modules.edit', function($view) {
 	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
 // 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
         });
-        View::composer('iba::edit', function($view) {
+        View::composer('atelier::edit', function($view) {
 	        $view->with('keywords', Keyword::select('id', 'word')->get());
         });
-         View::composer('iba::edit', function($view) {
+         View::composer('atelier::edit', function($view) {
 	        $view->with('peoples', People::with('detail')->select('id', 'name')->get());
 // 	        $view->with('peoples', People::select('id', 'name')->get()->pluck('id', 'name'));
         });
@@ -107,7 +107,7 @@ class IBAServiceProvider extends Provider
 				
 		$this->app->register('PirateLP\ILeaf\ILeafServiceProvider');
 		
-		if (!Router::hasMacro('iba')) {
+		if (!Router::hasMacro('atelier')) {
             $this->registerRouteMacro();
         }
         
@@ -119,7 +119,7 @@ class IBAServiceProvider extends Provider
 	
 	public function registerRouteMacro()
 	{
-		Router::macro('iba', function($slug, $controller)
+		Router::macro('atelier', function($slug, $controller)
 		{
 			Router::get('/' . $slug .'/', $controller . '@manage');
 			Router::get('/' . $slug .'/create/', $controller . '@create');

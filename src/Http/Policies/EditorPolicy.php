@@ -1,6 +1,6 @@
 <?php
 
-namespace PirateLP\IBA\Policies;
+namespace IAtelier\Atelier\Policies;
 
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;

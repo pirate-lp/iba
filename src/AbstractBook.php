@@ -1,6 +1,6 @@
 <?php
 
-Namespace PirateLP\IBA;
+Namespace IAtelier\Atelier;
 
 class AbstractBook {
 	

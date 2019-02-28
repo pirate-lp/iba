@@ -13,10 +13,10 @@
 		">
 		
 		
-		<script type="text/javascript" src="/piratelp/iba/js/analog.js"></script>
+		<script type="text/javascript" src="/iatelier/atelier/js/analog.js"></script>
 		
-		<link rel="stylesheet" href="/piratelp/iba/css/style.css">
-<!-- 		<link rel="stylesheet" href="/lil-plp/iba/css/selectize.css"> -->
+		<link rel="stylesheet" href="/iatelier/atelier/css/style.css">
+<!-- 		<link rel="stylesheet" href="/lil-plp/atelier/css/selectize.css"> -->
 
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 	</head>

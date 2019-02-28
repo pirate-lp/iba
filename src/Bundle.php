@@ -1,8 +1,8 @@
 <?php
 
-namespace PirateLP\IBA;
+namespace IAtelier\Atelier;
 
-use PirateLP\IBA\Book as Book;
+use IAtelier\Atelier\Book as Book;
 
 class Bundle extends Book
 {

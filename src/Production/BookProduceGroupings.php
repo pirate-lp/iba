@@ -1,12 +1,12 @@
 <?php
 	
-namespace PirateLP\IBA\Production;
+namespace IAtelier\Atelier\Production;
 
 use Illuminate\Database\Eloquent\Model;
-use PirateLP\IBA\Keyword;
-use PirateLP\IBA\Role;
-use PirateLP\IBA\People;
-use PirateLP\IBA\Name;
+use IAtelier\Atelier\Keyword;
+use IAtelier\Atelier\Role;
+use IAtelier\Atelier\People;
+use IAtelier\Atelier\Name;
 use App;
 
 use Illuminate\Support\Collection;

@@ -1,4 +1,4 @@
-@extends('iba::bundle.base')
+@extends('atelier::bundle.base')
 
 @section('form')
 
@@ -6,7 +6,7 @@
 <article class="shadw">
 <h2>New Bundle</h2>
 
-<form class="pure-form pure-form-stacked" action="/iba/analog/bundle/" method="post">
+<form class="pure-form pure-form-stacked" action="/atelier/analog/bundle/" method="post">
 {{ csrf_field() }}
 <div class="pure-g">
 
@@ -24,7 +24,7 @@
 </article>
 -->
 
-	<form class="pure-form pure-form-stacked" action="/iba/analog/bundle/" method="post">
+	<form class="pure-form pure-form-stacked" action="/atelier/analog/bundle/" method="post">
 	{{ csrf_field() }}
 		<h2>Creating Bundle</h2>
 		<div class="c-card">
