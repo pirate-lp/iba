@@ -28,7 +28,7 @@ class BookController extends Controller
 	    $this->class = 'App\\' . studly_case($this->type);
 	    if ($this->type == "bundle")
 	    {
-		    $this->class = "PirateLP\\IBA\\Bundle";
+		    $this->class = "PirateLP\\iAtelier\\Bundle";
 	    }
 */
     }
@@ -62,7 +62,7 @@ class BookController extends Controller
 		$items = $this->class::with($this->class::$dimensions)->get();
 		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('atelier::manage', compact('items', 'type'));
+			return view('atelier::production.manage', compact('items', 'type'));
 		} else {
 			return response()->json(compact('items', 'abstract'));
 		}
@@ -81,7 +81,7 @@ class BookController extends Controller
 	    $type = $this->type;
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('atelier::create', compact('book', 'bundles', 'type', 'roles'));
+			return view('atelier::production.create', compact('book', 'bundles', 'type', 'roles'));
 		} else {
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
@@ -140,7 +140,7 @@ class BookController extends Controller
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('atelier::edit', compact('bundles', 'book', 'type', 'roles'));
+			return view('atelier::production.edit', compact('bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));

@@ -11,7 +11,7 @@ class Bundle extends Book
      
     public static $dimensions = ['title', 'subtitle', 'description', 'slug', 'thumbnail', 'timestamp'];
     public static $groupings = [];
-    public static $storageName = [];
+    public static $storageName = 'bundle';
     
     protected $with = ['title', 'subtitle', 'slug'];
     

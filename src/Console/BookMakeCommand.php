@@ -43,7 +43,7 @@ class BookMakeCommand extends Command
         
         if (in_array($type, config('atelier')))
         {
-	        throw new InvalidArgumentException('A Book of this type already exist in IBA.');
+	        throw new InvalidArgumentException('A Book of this type already exist in iAtelier.');
         }
 	}
 }

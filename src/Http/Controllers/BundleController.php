@@ -28,6 +28,13 @@ class BundleController extends BookController
 		    $bundles[$bundle] = Bundle::with($this->class::$dimensions)->where('type', $bundle)->get();
 // 			$bundles[$bundle] = App\Bundle::where('type', $bundle)->get();
 	    }
+	    
+	    $bundles = null;
+	    foreach ( $this->bundleTypes as $bundle )
+	    {
+		    $bundles[$bundle] = Bundle::with($this->class::$dimensions)->where('type', $bundle)->get();
+	    }
+	    
 	    $roles = $this->roles;
 	    $type = $this->type;
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
@@ -57,9 +64,15 @@ class BundleController extends BookController
 		$book->dimensions = $abstractBook->dimensions;
 		$book->groupings = $abstractBook->groupings;
 	    
+	    $bundles = [];
+	    foreach ( $this->bundleTypes as $bundle )
+	    {
+		    $bundles[$bundle] = Bundle::with('title')->where('type', $bundle)->get();
+	    }
+	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
-			return view('atelier::bundle.edit', compact('article', 'bundles', 'book', 'type', 'roles'));
+			return view('atelier::bundle.edit', compact('bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));

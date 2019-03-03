@@ -2,7 +2,7 @@
 
 use IAtelier\Atelier\Http\Middleware\CheckEditor as Editor;
 
-Route::prefix('/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth', Editor::class])->group( function() {
+Route::prefix('/iatelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth', Editor::class])->group( function() {
 	
 	Route::get('/analog/', 'AnalogController@index');
 	
@@ -18,11 +18,11 @@ Route::prefix('/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->middl
 
 
 
-Route::prefix('/atelier/api')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
+Route::prefix('/iatelier/api')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['web', 'auth'])->group( function() {
 	
 });
 
-Route::prefix('/api/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
+Route::prefix('/api/iatelier')->namespace('IAtelier\Atelier\Http\Controllers')->middleware(['api', 'auth:api'])->group( function() {
 	
 	Route::prefix('/bundle')->group(function() {
 		Route::get('/', 'BundleController@manage');
@@ -36,11 +36,11 @@ Route::prefix('/api/atelier')->namespace('IAtelier\Atelier\Http\Controllers')->m
 
 Route::namespace('IAtelier\Atelier\Http\Controllers')->group( function() {
 	
-	Route::get('/atelier/digital/', 'ApiController@start');
+	Route::get('/iatelier/digital/', 'ApiController@start');
 	
-	Route::get('/atelier/', 'ApiController@apiIndex');
+	Route::get('/iatelier/', 'ApiController@apiIndex');
 	
-	Route::get('/atelier/bundle/create', function(){
+	Route::get('/iatelier/bundle/create', function(){
 					return "Hi";
 				})->middleware('auth');
 	

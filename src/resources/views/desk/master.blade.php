@@ -4,7 +4,7 @@
 
 	<div id="os">
 		<div class="menu-bar">
-			<a href="#"><b>IBA</b></a>
+			<a href="#"><b>iAtelier</b></a>
 			<a href="/atelier/analog/"><b>{{ config('app.name') }}</b></a>
 		</div>
 		<div class="desk">
