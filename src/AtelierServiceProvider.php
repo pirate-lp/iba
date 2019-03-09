@@ -139,7 +139,7 @@ class AtelierServiceProvider extends Provider
 			if ( substr($asset_name, -4) === '.mp4' )
 			{
 				$path = Storage::disk($disk)->getAdapter()->getPathPrefix();
-				$file = $path . '/' . $uri;
+				$file = $path . $uri;
 				$mime = 'video/mp4';
 				$size = filesize($file);
 				$length = $size;
