@@ -15,7 +15,7 @@ use IAtelier\Atelier\Console\ModelMakeCommand as ModelMakeCommand;
 use IAtelier\Atelier\Console\MigrateMakeCommand as MigrateMakeCommand;
 use IAtelier\Atelier\Console\ControllerMakeCommand as ControllerMakeCommand;
 use IAtelier\Atelier\Console\BookMakeCommand;
-use PirateLP\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
+use IAtelier\ILeaf\ILeafServiceProvider as ILeafServiceProvider;
 
 use Illuminate\Routing\Router;
 
