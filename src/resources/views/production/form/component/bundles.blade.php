@@ -10,7 +10,7 @@
 						
 						@foreach ( $values as $value )
 							<option value="{{ $value->toJson() }}"
-								@if ( $book->bundleSingle($key) && ($book->bundleSingle($key)->title->value == $value->title->value) )
+								@if ( method_exists($book, 'bundleSingle') && $book->bundleSingle($key) && ($book->bundleSingle($key)->title->value == $value->title->value) )
 									selected
 								@endif
 								>
