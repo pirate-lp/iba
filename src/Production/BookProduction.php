@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Yaml;
 use ParsedownExtra;
 
+
+use Illuminate\Http\Request;
+
 use IAtelier\Atelier;
 
 trait BookProduction {
@@ -34,12 +37,18 @@ trait BookProduction {
 		}
 	}
 	
-	public function revise($values)
+	public function revise($values, $file = null)
 	{
 		$this->reviseDimensions($values);
 		$this->reviseGroupings($values);
 		$this->reviseContent($values);
+		$this->reviseFile($file);
 		$this->save();
+	}
+	
+	public function reviseFile($file) {
+		$uri = static::$storageName . '/' . $this->id;
+		Storage::disk('ibook')->putFileAs($uri, $file, $file->getClientOriginalName());
 	}
 	
 	public function reviseContent($values)

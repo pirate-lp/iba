@@ -18,7 +18,7 @@ class AnalogController extends Controller
 	public $books;
 	
 	public function __construct() {
-		$this->books = config('atelier.book_types');
+		$this->books = config('iatelier.book_types');
 	}
 	
 	public function index()
@@ -26,7 +26,7 @@ class AnalogController extends Controller
 		$books = [];
 		foreach ($this->books as $key => $book)
 		{
-			$request = Request::create('atelier/analog/' . $book . '/dashboard/', 'GET');
+			$request = Request::create('iatelier/analog/' . $book . '/dashboard/', 'GET');
 			$response = app()->handle($request);
 			$books[$key] = json_decode($response->content());
 			

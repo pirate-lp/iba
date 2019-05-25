@@ -17,7 +17,7 @@
 			</div>
 		@endif
 	
-		<form class="atelier-main-form pure-form pure-form-aligned" action="/iatelier/analog/{{ $type }}/{{ $book->id }}/" method="POST">
+		<form class="atelier-main-form pure-form pure-form-aligned" action="/iatelier/analog/{{ $type }}/{{ $book->id }}/" method="POST"  enctype="multipart/form-data">
 			{{ method_field('PUT') }}
 			{{ csrf_field() }}
 		

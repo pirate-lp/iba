@@ -1,9 +1,11 @@
 @include('atelier::production.form.component.basics')
 
+@include('atelier::production.form.component.file')
+
 <div class="grid-large panel-edit">
 	@stack('extra-components')
 </div>
-		
+
 <div class="grid-large panel-edit">
 	
 	<div class="form-box">

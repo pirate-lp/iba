@@ -59,7 +59,7 @@ class BookController extends Controller
     public function manage()
 	{
 		$abstract = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
-		$items = $this->class::with($this->class::$dimensions)->get();
+		$items = $this->class::with($this->class::$dimensions)->get()->sortByDesc('timestamp.publish');
 		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
 			return view('atelier::production.manage', compact('items', 'type'));
@@ -130,6 +130,8 @@ class BookController extends Controller
 
 		}
 		
+		$files = $currentBook->retrive_files_list();
+		
 // 	    $book= (object) array_merge((array) $abstractBook, (array) $currentBook->toArray());
 		$book = $currentBook;
 		$book->dimensions = $abstractBook->dimensions;
@@ -137,6 +139,8 @@ class BookController extends Controller
 	    $book->people = $people;
 	    $book->keywords = $keywords;
 	    $book->bundles = $booksBundles;
+	    
+	    $book->files = $files;
 	    
 	    if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;

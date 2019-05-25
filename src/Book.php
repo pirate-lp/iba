@@ -23,9 +23,12 @@ use IAtelier\Atelier\Subtitle;
 use IAtelier\Atelier\Timestamp;
 use IAtelier\Atelier\Thumbnail;
 
+use IAtelier\Atelier\File;
+
 abstract class Book extends Model {
 	
 	use BookProduction;
+	use File;
 	
 	protected $disk = 'ibook';
 	protected $fillable = ['loc'];
