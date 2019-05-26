@@ -47,8 +47,12 @@ trait BookProduction {
 	}
 	
 	public function reviseFile($file) {
-		$uri = static::$storageName . '/' . $this->id;
-		Storage::disk('ibook')->putFileAs($uri, $file, $file->getClientOriginalName());
+		if ( isset($file) )
+		{ 
+			$uri = static::$storageName . '/' . $this->id;
+			return Storage::disk('ibook')->putFileAs($uri, $file, $file->getClientOriginalName());
+		}
+		return false;
 	}
 	
 	public function reviseContent($values)
