@@ -169,10 +169,12 @@ abstract class Book extends Model {
 	}
 */
 
-	public static function withAll()
+	public static function withAll( $array = null )
 	{
+		
 		$all = array_merge(static::$dimensions, static::$groupings);
 		return static::with($all);
+		
 	}
 /*
 	public function withAll()
