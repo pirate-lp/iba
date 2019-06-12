@@ -17,33 +17,33 @@ use IAtelier\Atelier\Bundle as Bundle;
 class BookController extends Controller
 {
 	
-    public $type;
-    public $class;
-    public $roles = [];
-    public $bundleTypes = [];
-    
-    public function __construct()
-    {
+	public $type;
+	public $class;
+	public $roles = [];
+	public $bundleTypes = [];
+	
+	public function __construct()
+	{
 /*
-	    $this->class = 'App\\' . studly_case($this->type);
-	    if ($this->type == "bundle")
-	    {
-		    $this->class = "PirateLP\\iAtelier\\Bundle";
-	    }
+		$this->class = 'App\\' . studly_case($this->type);
+		if ($this->type == "bundle")
+		{
+			$this->class = "PirateLP\\iAtelier\\Bundle";
+		}
 */
-    }
-    
-    public function dashboard()
-    {
-	    $r['count'] = $this->class::count();
+	}
+	
+	public function dashboard()
+	{
+		$r['count'] = $this->class::count();
 		$r['name'] = $this->type;
 		$r['size'] = $this->get_dir_size();
 		return $r;
-    }
-    
-    private function get_dir_size()
-    {
-	    $dir_size = 0;
+	}
+	
+	private function get_dir_size()
+	{
+		$dir_size = 0;
 		$dir = storage_path() . "/ibook/" . $this->class::$storageName . "/";
 		if ( !is_dir($dir) )
 		{
@@ -54,12 +54,12 @@ class BookController extends Controller
 			$dir_size += $file->getSize();
 		}
 		return number_format($dir_size / 1048576,2);
-    }
-    
-    public function manage()
+	}
+	
+	public function manage()
 	{
 		$abstract = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
-		$items = $this->class::with($this->class::$dimensions)->get()->sortByDesc('timestamp.publish');
+		$items = $this->class::with($this->class::$dimensions)->get()->sortByDesc('id');
 		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
 			return view('atelier::production.manage', compact('items', 'type'));
@@ -69,35 +69,36 @@ class BookController extends Controller
 	}
 	
 	public function create()
-    {
-	    $book = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
-	    
-	    $bundles = null;
-	    foreach ( $this->bundleTypes as $bundle )
-	    {
-		    $bundles[$bundle] = Bundle::with($this->class::$dimensions)->where('type', $bundle)->get();
-	    }
-	    $roles = $this->roles;
-	    $type = $this->type;
-	    if ( in_array('web', Route::current()->computedMiddleware) ) {
+	{
+		$book = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
+		
+		$bundles = null;
+		foreach ( $this->bundleTypes as $bundle )
+		{
+			$bundles[$bundle] = Bundle::with($this->class::$dimensions)->where('type', $bundle)->get();
+		}
+		$roles = $this->roles;
+		$type = $this->type;
+		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
 			return view('atelier::production.create', compact('book', 'bundles', 'type', 'roles'));
 		} else {
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
-    }
-	    
-    public function edit($id)
-    {
-	    foreach ( $this->bundleTypes as $bundle )
-	    {
-		    $bundles[$bundle] = Bundle::with('title')->where('type', $bundle)->get();
-	    }
-	    
-	    $type = $this->type;
-	    $roles = $this->roles;
-	    
-	    $abstractBook = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
+	}
+		
+	public function edit($id)
+	{
+		$bundles = null;
+		foreach ( $this->bundleTypes as $bundle )
+		{
+			$bundles[$bundle] = Bundle::with('title')->where('type', $bundle)->get();
+		}
+		
+		$type = $this->type;
+		$roles = $this->roles;
+		
+		$abstractBook = new AbstractBook($this->class::$dimensions, $this->class::$groupings);
 		
 		$currentBook = $this->class::with($this->class::$dimensions)->find($id);
 		
@@ -132,23 +133,23 @@ class BookController extends Controller
 		
 		$files = $currentBook->retrive_files_list();
 		
-// 	    $book= (object) array_merge((array) $abstractBook, (array) $currentBook->toArray());
+// 		$book= (object) array_merge((array) $abstractBook, (array) $currentBook->toArray());
 		$book = $currentBook;
 		$book->dimensions = $abstractBook->dimensions;
 		$book->groupings = $abstractBook->groupings;
-	    $book->people = $people;
-	    $book->keywords = $keywords;
-	    $book->bundles = $booksBundles;
-	    
-	    $book->files = $files;
-	    
-	    if ( in_array('web', Route::current()->computedMiddleware) ) {
+		$book->people = $people;
+		$book->keywords = $keywords;
+		$book->bundles = $booksBundles;
+		
+		$book->files = $files;
+		
+		if ( in_array('web', Route::current()->computedMiddleware) ) {
 			$type = $this->type;
 			return view('atelier::production.edit', compact('bundles', 'book', 'type', 'roles'));
 		} else {
 			$book= (object) array_merge((array) $abstractBook, (array) $book->toArray());
 			return response()->json(compact('book', 'bundles', 'roles'));
 		}
-    }
-    
+	}
+	
 }
