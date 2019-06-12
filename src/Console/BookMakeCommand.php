@@ -41,7 +41,7 @@ class BookMakeCommand extends Command
             throw new InvalidArgumentException('Model name contains invalid characters.');
         }
         
-        if (in_array($type, config('atelier')))
+        if (in_array($type, config('iatelier')))
         {
 	        throw new InvalidArgumentException('A Book of this type already exist in iAtelier.');
         }
