@@ -28,7 +28,7 @@ trait BookProduction {
 	
 	public function writeContent($values)
 	{
-		if ( !empty(static::$storageName) )
+		if ( !empty(static::$storageName) && array_key_exists('content', $values) )
 		{
 			$fileUri = static::$storageName . '/' . $this->id . '/main.md';
 			Storage::disk('ibook')->put($fileUri, $values['content']);
@@ -57,7 +57,7 @@ trait BookProduction {
 	
 	public function reviseContent($values)
 	{
-		if ( !empty(static::$storageName) )
+		if ( !empty(static::$storageName) && array_key_exists('content', $values) )
 		{
 			$fileUri = static::$storageName . '/' . $this->id . '/main.md';
 			Storage::disk('ibook')->put($fileUri, $values['content']);
