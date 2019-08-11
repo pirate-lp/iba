@@ -30,10 +30,8 @@
 	</div>
 	</div>
 	<div class="form-box">	
-	<details>
-		<summary>Text</summary>
+		<label>Text</label>
 		<textarea name="content" class="text-editor pure-input-1 form-control" type="text" placeholder="Content of the book ..." >@if (method_exists($book, 'content')){!! $book->content_raw !!}@endif</textarea>
-	</details>
-		</div>
+	</div>
 	
 </div>
