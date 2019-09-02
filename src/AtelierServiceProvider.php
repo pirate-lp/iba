@@ -30,7 +30,7 @@ class AtelierServiceProvider extends Provider
 	{
 		
 		$this->publishes([
-        	__DIR__.'/config/atelier.php' => config_path('atelier.php'),
+        	__DIR__.'/config/iatelier.php' => config_path('iatelier.php'),
 		]);
     
 		require __DIR__.'/routes/web.php';
