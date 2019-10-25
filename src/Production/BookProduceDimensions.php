@@ -206,5 +206,4 @@ trait BookProduceDimensions {
 			$this->storeTimestamp($values);
 		}
 	}
-	
 }
