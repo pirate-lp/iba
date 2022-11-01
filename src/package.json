@@ -15,7 +15,7 @@
     "lodash": "4.17.5"
   },
   "dependencies": {
-    "contents": "^4.0.2",
+    "contents": "^5.0.0",
     "flatpickr": "^4.3.2",
     "imagesloaded": "4.1.4",
     "jquery-bridget": "^2.0.1",
